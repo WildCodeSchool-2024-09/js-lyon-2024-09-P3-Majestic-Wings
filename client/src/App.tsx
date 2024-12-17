@@ -1,12 +1,12 @@
 import "./App.css";
 import Header from "./components/Header/Header";
+import WelcomePage from "./pages/WelcomePage";
 
-function App() {
+export default function App() {
   return (
     <>
       <Header />
+      <WelcomePage />
     </>
   );
 }
-
-export default App;
