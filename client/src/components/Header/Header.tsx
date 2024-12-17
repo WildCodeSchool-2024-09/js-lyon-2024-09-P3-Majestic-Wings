@@ -1,4 +1,3 @@
-import React from "react";
 import "./Header.css";
 import Header_Image from "../../../public/Header_Image.png";
 
