@@ -1,0 +1,7 @@
+.loginButton {
+  display: flex;
+  justify-content: flex-end;
+}
+.loginButton img {
+  width: 25px;
+}
