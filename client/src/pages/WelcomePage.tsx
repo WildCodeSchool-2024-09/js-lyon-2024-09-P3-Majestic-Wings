@@ -1,3 +1,4 @@
+import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
 import BurgerMenu from "../components/MenuBurger/MenuBurger";
 import Our_Planes from "../components/Our_Planes/Our_Planes";
@@ -14,6 +15,7 @@ export default function WelcomePage() {
       <Header />
       <Our_Planes />
       <Our_Prestations />
+      <Footer />
     </>
   );
 }
