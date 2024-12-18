@@ -7,5 +7,10 @@
   --Button: rgba(124, 99, 29, 80);
 }
 body {
+  margin: 0;
   background-color: var(--backgroundColor);
+}
+.NavBar {
+  display: flex;
+  justify-content: space-between;
 }

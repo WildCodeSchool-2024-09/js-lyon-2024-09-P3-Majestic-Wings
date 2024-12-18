@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import "./Inverted_Section.css";
+import "./Our_prestations.css";
 
 const Our_Prestations = () => {
   const images = [
     "../../../public/Prestations_1.png",
-    "../../../public/Prestations_2.png",
-    "../../../public/Prestations_3.png",
+    "../../../public/Prestations_1.png",
+    "../../../public/Prestations_1.png",
   ];
 
   const [currentImage, setCurrentImage] = useState(0);
