@@ -1,5 +1,5 @@
 import "./Login.css";
-import userInterfaceIcon from "../../assets/images/login.png";
+import userInterfaceIcon from "../../../public/login.png";
 
 function Login() {
   return (
