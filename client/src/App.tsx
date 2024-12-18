@@ -1,11 +1,10 @@
+import { Outlet } from "react-router-dom";
 import "./App.css";
-import BurgerMenu from "./components/MenuBurger/MenuBurger";
-function App() {
+
+export default function App() {
   return (
     <>
-      <BurgerMenu />
+      <Outlet />
     </>
   );
 }
-
-export default App;
