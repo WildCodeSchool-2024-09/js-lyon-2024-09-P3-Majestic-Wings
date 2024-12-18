@@ -3,9 +3,9 @@ import "./Inverted_Section.css";
 
 const Our_Prestations = () => {
   const images = [
-    "../../../public/Jet_privé_2.png",
-    "../../../public/Jet_privé_3.png",
-    "../../../public/Jet_privé_4.png",
+    "../../../public/Prestations_1.png",
+    "../../../public/Prestations_2.png",
+    "../../../public/Prestations_3.png",
   ];
 
   const [currentImage, setCurrentImage] = useState(0);
