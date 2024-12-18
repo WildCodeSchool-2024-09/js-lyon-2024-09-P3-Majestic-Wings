@@ -6,9 +6,7 @@
   align-items: center;
   gap: 30px;
   padding: 20px 10px;
-  background-color: var(
-    --backgroundColor
-  ); /* Variable pour la couleur de fond */
+  background-color: var(--backgroundColor); /* Variable pour la couleur de fond */
 }
 
 /* Partie gauche : Contenu du texte */
