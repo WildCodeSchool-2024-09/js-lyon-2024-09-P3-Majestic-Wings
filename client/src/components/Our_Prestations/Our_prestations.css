@@ -1,0 +1,135 @@
+/* Version mobile (minimum 320px) */
+.our-prestations {
+  display: flex;
+  flex-direction: column-reverse; /* Mobile-first : empile les éléments */
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 20px 10px;
+  background-color: var(--backgroundColor); /* Variable pour la couleur de fond */
+}
+
+/* Partie gauche : Contenu du texte */
+.text-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: justify;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.section-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  color: #555;
+}
+
+.explore-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto; /* Centrage horizontal */
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  color: #fff;
+  background-color: rgba(74, 13, 11);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.explore-button:hover {
+  background-color: rgba(124, 99, 29);
+}
+
+/* Partie droite : Slider d'images */
+.image-slider {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre à gérer selon votre design */
+}
+
+.slider-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: opacity 0.5s ease-in-out; /* Transition fluide */
+}
+
+/* Tablettes (minimum 768px) */
+@media (min-width: 768px) {
+  .our-prestations {
+    flex-direction: row; /* Passe en ligne */
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .text-content {
+    flex: 1;
+    align-items: flex-end; /* Texte aligné à droite */
+    text-align: justify;
+  }
+
+  .image-slider {
+    flex: 1;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .section-description {
+    font-size: 1.1rem;
+  }
+
+  .explore-button {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+}
+
+/* Ordinateurs et grands écrans (minimum 1024px) */
+@media (min-width: 1024px) {
+  .inverted-section {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 40px 20px;
+  }
+
+  .text-content {
+    flex: 1;
+    align-items: flex-start; /* Alignement du texte à gauche */
+    text-align: justify;
+  }
+
+  .image-slider {
+    flex: 1;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+  }
+
+  .section-description {
+    font-size: 1.2rem;
+  }
+
+  .explore-button {
+    margin: 0 auto; /* Bouton bien centré */
+  }
+}
