@@ -1,0 +1,144 @@
+/* Version mobile (minimum 320px) */
+.our-planes {
+  display: flex;
+  flex-direction: column; /* Mobile-first : empile les éléments */
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 20px 10px;
+  background-color: var(--backgroundColor); /* Fond à revoir en fonction du choix final pour le background color ! */
+}
+
+/* Partie gauche : Slider d'images */
+.image-slider {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre à gérer en fonction du header, à voir ensuite */
+}
+
+.slider-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: opacity 0.5s ease-in-out; /* c'est pour une transition plus fluide, c'était dégueu de le faire d'un coup */
+}
+
+/* Partie droite : Contenu du texte */
+.text-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: justify;
+}
+
+h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto; /* Assure le centrage parfait */
+}
+
+.section-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.section-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  color: #555;
+  text-align: justify;
+}
+
+.explore-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto; /* Centrage horizontal du bouton */
+  padding: 8px 16px;
+  font-size: 0.9rem; /* Bouton plus compact sur mobile */
+  color: #fff;
+  background-color: rgba(74, 13, 11);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.explore-button:hover {
+  background-color: rgba(124, 99, 29);
+}
+
+/* Tablettes (minimum 768px) */
+@media (min-width: 768px) {
+  .our-planes {
+    flex-direction: row; /* ça passe en ligne à partir de 768px */
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .image-slider {
+    flex: 1;
+  }
+
+  .text-content {
+    flex: 1;
+    align-items: center;
+    text-align: justify;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .section-description {
+    font-size: 1.1rem;
+  }
+
+  .explore-button {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+}
+
+/* Ordinateurs et grands écrans (minimum 1024px) */
+@media (min-width: 1024px) {
+  .our-planes {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 40px 20px;
+  }
+
+  .image-slider {
+    flex: 1;
+  }
+
+  .text-content {
+    flex: 1;
+    align-items: flex-start;
+    text-align: justify;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+  }
+
+  .section-description {
+    font-size: 1.2rem;
+  }
+
+  .explore-button {
+    margin: 0 auto; /* Centrage horizontal du bouton */
+  }
+}

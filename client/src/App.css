@@ -1,0 +1,11 @@
+:root {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  --backgroundColor: #eceae8;
+  --Footer: rgba(74, 13, 11, 80);
+  --Button: rgba(124, 99, 29, 80);
+}
+body {
+  background-color: var(--backgroundColor);
+}
