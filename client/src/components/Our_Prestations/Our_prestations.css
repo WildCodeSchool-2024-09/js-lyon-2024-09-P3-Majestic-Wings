@@ -1,7 +1,7 @@
 /* Version mobile (minimum 320px) */
 .our-prestations {
   display: flex;
-  flex-direction: column; /* Mobile-first : empile les éléments */
+  flex-direction: column-reverse; /* Mobile-first : empile les éléments */
   justify-content: center;
   align-items: center;
   gap: 30px;
@@ -70,7 +70,7 @@
 
 /* Tablettes (minimum 768px) */
 @media (min-width: 768px) {
-  .inverted-section {
+  .our-prestations {
     flex-direction: row; /* Passe en ligne */
     justify-content: space-between;
     align-items: center;
