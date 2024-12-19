@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./Our_Planes.css";
 
 const Our_Planes = () => {
@@ -36,9 +37,11 @@ const Our_Planes = () => {
           pour le plaisir, chaque détail de nos jets est conçu pour transformer
           votre vol en une expérience inoubliable.
         </p>
-        <button type="button" className="explore-button">
-          Explorer la flotte
-        </button>
+        <Link to="/planes">
+          <button type="button" className="explore-button">
+            Explorer la flotte
+          </button>
+        </Link>
       </div>
     </section>
   );

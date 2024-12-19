@@ -20,7 +20,7 @@ values
   ("Cessna", "Citation Longitude", 12, 6430, 882, 450, "https://hyper.luxe/wp-content/uploads/2022/09/longitude_notail_64c0371_8989.jpg__1200x675_q85_crop_subsampling-2_upscale.jpg"),
   ("Gulfstream", "G550", 19, 12501, 941, 226, "https://i0.wp.com/www.aerobuzz.fr/wp-content/uploads/2020/06/Gulfstream-G550.jpg?fit=1000%2C624&ssl=1"),
   ("Bombardier", "Global 6000", 17, 11112, 950, 195, "https://defense.bombardier.com/sites/missionized/files/DDBA0637_BSA_6000_16A2138_V1-share.jpg"),
-  ("Dassault", "Falcon 7X", 16, 11019, 904, 140, "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Dassault_Falcon_7X%2C_Proair_[…]ssault_Falcon_7X%2C_Proair_Charter_Transport_JP7526714.jpg"),
+  ("Dassault", "Falcon 7X", 16, 11019, 904, 140, "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Dassault_Falcon_7X%2C_Proair_Charter_Transport_JP7526714.jpg/640px-Dassault_Falcon_7X%2C_Proair_Charter_Transport_JP7526714.jpg"),
   ("Embraer","Praetor 600", 12, 7408, 863, 155, "https://jetflo.com/storage/2022/11/Praetor600_exterior-1.jpg"),
   ("Cessna", "Citation X+", 12, 6112, 978, 726, "https://www.themilliardaire.com/wp-content/uploads/2014/01/cessna-citation-x-3.jpg"),
   ("Gulfstream", "G500", 19, 9630, 982, 226, "https://assets.gulfstream.aero/thedotcom/images/aircraft/g500/d_g500_a_mkt_00060_PROD.jpg"),
