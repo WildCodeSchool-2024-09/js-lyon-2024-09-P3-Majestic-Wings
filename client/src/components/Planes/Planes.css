@@ -1,0 +1,9 @@
+.divPlane {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.plane {
+  width: 300px;
+}
