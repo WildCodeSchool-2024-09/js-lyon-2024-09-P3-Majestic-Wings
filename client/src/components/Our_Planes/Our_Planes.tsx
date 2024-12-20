@@ -28,7 +28,7 @@ const Our_Planes = () => {
           className="slider-image"
         />
       </div>
-      <div className="text-content">
+      <div className="text-plane">
         <h2 className="section-title">Nos avions</h2>
         <p className="section-description">
           Découvrez notre flotte exceptionnelle d’avions privés, soigneusement

@@ -12,12 +12,18 @@ interface PlanesProps {
 function Planes({ PlanesData }: PlanesProps) {
   return (
     <>
-      <div className="divPlane">
-        <img className="plane" src={PlanesData.image} alt={PlanesData.brand} />
-        <h3>
-          {PlanesData.brand} {PlanesData.model}
-        </h3>
-      </div>
+      <section className="sectionPlane">
+        <div className="divPlane">
+          <img
+            className="plane"
+            src={PlanesData.image}
+            alt={PlanesData.brand}
+          />
+          <h3>
+            {PlanesData.brand} {PlanesData.model}
+          </h3>
+        </div>
+      </section>
     </>
   );
 }

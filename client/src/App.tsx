@@ -8,8 +8,8 @@ export default function App() {
   return (
     <>
       <nav className="NavBar">
-        <Login />
         <BurgerMenu />
+        <Login />
       </nav>
       <Outlet />
       <Footer />
