@@ -28,7 +28,7 @@
 }
 
 /* Partie droite : Contenu du texte */
-.text-content {
+.text-plane {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -90,10 +90,9 @@ h2 {
     flex: 1;
   }
 
-  .text-content {
+  .text-plane {
     flex: 1;
     align-items: center;
-    text-align: justify;
   }
 
   .section-title {
@@ -124,10 +123,9 @@ h2 {
     flex: 1;
   }
 
-  .text-content {
+  .text-plane {
     flex: 1;
-    align-items: flex-start;
-    text-align: justify;
+    align-items: center;
   }
 
   .section-title {

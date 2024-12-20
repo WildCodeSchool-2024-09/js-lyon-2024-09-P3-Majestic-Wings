@@ -19,9 +19,11 @@ function PlanesPage() {
 
   return (
     <>
-      {plane.map((display) => (
-        <Planes PlanesData={display} key={display.id} />
-      ))}
+      <section className="sectionPlane">
+        {plane.map((display) => (
+          <Planes PlanesData={display} key={display.id} />
+        ))}
+      </section>
     </>
   );
 }

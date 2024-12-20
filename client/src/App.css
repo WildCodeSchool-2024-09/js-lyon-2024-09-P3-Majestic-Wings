@@ -14,3 +14,21 @@ body {
   display: flex;
   justify-content: space-between;
 }
+
+@media (min-width: 768px) {
+  .sectionPlane {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sectionPlane {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+}
