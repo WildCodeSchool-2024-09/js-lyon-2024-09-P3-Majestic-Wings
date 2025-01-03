@@ -136,4 +136,3 @@ values
 ("large_airport","Naples International Airport",40.886002,14.2908,"IT","IT-72","Napoli"),
 ("medium_airport","Florence Airport, Peretola",43.808558,11.202822,"IT","IT-52","Firenze (FI)"),
 ("medium_airport","Rome Urbe Airport",41.952096,12.502231,"IT","IT-62","Rome");
-
