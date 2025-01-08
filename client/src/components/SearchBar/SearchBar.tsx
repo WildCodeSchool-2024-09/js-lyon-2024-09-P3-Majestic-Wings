@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import FlightButton from "../../../public/takeoff.png";
 import "./SearchBar.css";
 
@@ -46,13 +47,15 @@ const SearchBar = () => {
               </option>
             ))}
           </select>
-          <button type="button" className="ValidationButton">
-            <img
-              src={FlightButton}
-              alt="validation button"
-              className="ValidationImage"
-            />
-          </button>
+          <Link to="/login">
+            <button type="button" className="ValidationButton">
+              <img
+                src={FlightButton}
+                alt="validation button"
+                className="ValidationImage"
+              />
+            </button>
+          </Link>
         </label>
       </div>
       <div className="FlightButton">
