@@ -1,17 +1,17 @@
 import "./PageLogin.css";
 import { Link } from "react-router-dom";
-import password from "../../../public/lock.png";
-import user from "../../../public/user.png";
+import Password from "../../../public/lock.png";
+import User from "../../../public/user.png";
 const PageLogin = () => {
   return (
     <div className="login">
       <form className="form-all" action="">
         <div className="input_box">
-          <img src={user} alt="identifiant" />
+          <img src={User} alt="identifiant" />
           <input type="text" placeholder="Username" required />
         </div>
         <div className="input_box">
-          <img src={password} alt="password" />
+          <img src={Password} alt="password" />
           <input type="password" placeholder="Password" required />
         </div>
         <div className="remember_forgot">

@@ -14,9 +14,9 @@ const Our_Planes = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prevImage) => (prevImage + 1) % images.length);
-    }, 5000); // ça c'est pour changer de photo toutes les 5 sec, il faudar en trouver 2-3 pas mal
+    }, 5000);
 
-    return () => clearInterval(interval); // c'est pour éviter les fuites de mémoire, à voir après les tests si on peut le dégager
+    return () => clearInterval(interval);
   }, []);
 
   return (
