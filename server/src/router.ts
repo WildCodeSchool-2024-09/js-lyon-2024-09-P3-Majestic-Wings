@@ -6,7 +6,6 @@ const router = express.Router();
 // Define Your API Routes Here
 /* ************************************************************************* */
 
-import { log } from "node:console";
 // Define item-related routes
 import itemActions from "./modules/item/itemActions";
 

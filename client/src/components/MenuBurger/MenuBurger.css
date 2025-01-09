@@ -4,8 +4,6 @@
 }
 
 .burger-icon {
-  /* display: flex; */
-  /* flex-direction: column; */
   cursor: pointer;
   width: 30px;
 }

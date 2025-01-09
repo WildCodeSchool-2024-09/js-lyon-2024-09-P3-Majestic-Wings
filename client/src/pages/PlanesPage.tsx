@@ -12,7 +12,7 @@ interface PlanesProps {
 function PlanesPage() {
   const [plane, setPlane] = useState<PlanesProps[]>([]);
   useEffect(() => {
-    fetch("http://localhost:3310/api/planes")
+    fetch(`${import.meta.env.VITE_API_URL}/api/planes`)
       .then((res) => res.json())
       .then((data) => setPlane(data));
   }, []);

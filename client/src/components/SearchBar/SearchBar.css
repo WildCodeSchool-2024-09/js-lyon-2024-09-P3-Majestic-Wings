@@ -20,6 +20,9 @@
   margin-bottom: 20px;
 }
 .ValidationButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: solid 2px var(--Button);
   border-radius: 10px;
   margin: 5px;
@@ -27,6 +30,7 @@
   color: #fff;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  width: 250px;
 }
 .ValidationButton:hover {
   background-color: #7c631d;
@@ -38,6 +42,7 @@
   display: flex;
   justify-content: center;
 }
+
 .SearchTitle {
   margin-top: 40px;
   font-size: 30px;
@@ -67,6 +72,10 @@
   }
   .FlyButton {
     font-size: 18px;
+  }
+  .ValidationButton {
+    width: 65px;
+    height: 56px;
   }
 }
 @media (min-width: 425px) and (max-width: 500px) {

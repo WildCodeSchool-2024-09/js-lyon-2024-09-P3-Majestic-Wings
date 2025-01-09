@@ -6,7 +6,7 @@
   align-items: center;
   gap: 30px;
   padding: 20px 10px;
-  background-color: var(--backgroundColor); /* Fond à revoir en fonction du choix final pour le background color ! */
+  background-color: var(--backgroundColor);
 }
 
 /* Partie gauche : Slider d'images */
@@ -24,7 +24,7 @@
   width: 100%;
   height: auto;
   object-fit: cover;
-  transition: opacity 0.5s ease-in-out; /* c'est pour une transition plus fluide, c'était dégueu de le faire d'un coup */
+  transition: opacity 0.5s ease-in-out;
 }
 
 /* Partie droite : Contenu du texte */
