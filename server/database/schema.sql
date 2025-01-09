@@ -9,7 +9,19 @@ create table plane(
   image text not null
 );
 
+create table service(
+  service_code  varchar(3) primary key not null,
+  service_libelle varchar(50) not null,
+  service_photo varchar(150) not null,
+  service_plan  varchar(150) not null
+);
 
+create table flight_option(
+  fligh_option_code varchar(5) primary key  not null,
+  fligh_option_libelle varchar(30) not null,
+  service_fligh_option varchar(3),
+  foreign key (service_fligh_option) references service (service_code)
+);
 
 insert into plane(brand, model, capacity, autonomy, speed, luggages, image)
 values
@@ -33,3 +45,29 @@ values
   ("Dassault", "Falcon 900LX", 14, 8889, 950, 127, "https://images.dassault-aviation.com/w_2000,f_auto,q_auto,g_center,dpr_auto,c_fill/wp-auto-upload/1/files/2022/03/DA00012401_S.jpg"),
   ("Embraer", "Phenom 300E", 11, 3700, 859, 74, "https://globaljet.aero/sites/default/files/2021-01/Embraer%20Phenm%20300%20Exterior.jpg"),
   ("Cessna", "Citation CJ4", 10, 3708, 835, 770, "https://cdn.flightsim.to/images/20/cessna-citation-cj4-n347cz-yaLJg.jpg?width=800");
+
+
+insert into service(service_code,service_libelle,service_photo,service_plan)
+values
+  ("CLC", "Cabine Long Courier", "https://www.avico.com/wp-content/uploads/2022/03/034-falcon8x-2018usb55-a4-hd-scaled-e1646847361884-1641x750.jpg", "https://www.mkpartnair.com/app/uploads/Jetplane-Vue-du-haut-vertical-8-2.png"),
+  ("CGC", "Grande Cabine", "https://www.themilliardaire.com/wp-content/uploads/2019/11/Gulfstream-G700-Divan-1024x683.png", "https://www.mkpartnair.com/app/uploads/Jetplane-Vue-du-haut-vertical-8-2.png"),
+  ("CSM", "Cabine Super Moyenne", "https://www.themilliardaire.com/wp-content/uploads/2019/11/Gulfstream-G700-Six-Place-Dining-1024x683.png", "https://www.mkpartnair.com/app/uploads/Jetplane-Vue-du-haut-vertical-8-2.png");
+
+insert into flight_option(fligh_option_code,fligh_option_libelle,service_fligh_option)
+values
+  ("SCCLC", "Siege Cuir", "CLC"),
+  ("SCCGC", "Siege Cuir", "CGC"),
+  ("SCCSM", "Siege Cuir", "CSM"),
+  ("BACLC", "Bar", "CLC"),
+  ("BACGC", "Bar", "CGC"),
+  ("BACSM", "Bar", "CSM"),
+  ("CICLC", "Cinema", "CLC"),
+  ("CICGC", "Cinema", "CGC"),
+  ("CICSM", "Cinema", "CSM"),
+  ("RECLC", "Restauration", "CLC"),
+  ("BTCLC", "Salle de Conference", "CLC"),
+  ("BTCGC", "Salle de Jeux", "CGC");
+  
+  
+
+
