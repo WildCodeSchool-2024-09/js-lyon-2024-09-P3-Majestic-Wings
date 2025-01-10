@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Our_prestations.css";
+import { Link } from "react-router-dom";
 
 const Our_Prestations = () => {
   const images = [
@@ -28,9 +29,11 @@ const Our_Prestations = () => {
           absolue, d’un confort ultime et d’un service adapté à vos besoins.
           Prenez votre envol avec classe et distinction.
         </p>
-        <button type="button" className="explore-button">
-          Découvrir nos services
-        </button>
+        <Link to="/services">
+          <button type="button" className="explore-button">
+            Découvrir nos services
+          </button>
+        </Link>
       </div>
       <div className="image-slider">
         <img
