@@ -1,6 +1,6 @@
 import "./LoginIcon.css";
 import { Link } from "react-router-dom";
-import userInterfaceIcon from "../../../public/avatar-unscroll.png";
+import userInterfaceIcon from "../../../public/avatar-noir.png";
 
 function LoginIcon() {
   return (

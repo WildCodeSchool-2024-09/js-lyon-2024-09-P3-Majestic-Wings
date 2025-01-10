@@ -9,7 +9,8 @@
 }
 
 .burgerbarre {
-  background-color: #333;
+  background-color: #ffffff;
+  border: solid 1px black;
   height: 3px;
   margin: 5px 0;
 }
