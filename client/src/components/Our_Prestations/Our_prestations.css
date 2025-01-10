@@ -6,7 +6,7 @@
   align-items: center;
   gap: 30px;
   padding: 20px 10px;
-  background-color: var(--backgroundColor); /* Variable pour la couleur de fond */
+  background-color: var(--backgroundColor);
 }
 
 /* Partie gauche : Contenu du texte */
@@ -44,6 +44,7 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  text-decoration: none;
 }
 
 .explore-button:hover {
@@ -79,7 +80,6 @@
 
   .text-content {
     flex: 1;
-    align-items: flex-end; /* Texte aligné à droite */
     text-align: justify;
   }
 
@@ -113,7 +113,6 @@
 
   .text-content {
     flex: 1;
-    align-items: flex-start; /* Alignement du texte à gauche */
     text-align: justify;
   }
 
