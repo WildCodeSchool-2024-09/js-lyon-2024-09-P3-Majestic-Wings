@@ -1,8 +1,8 @@
-import "./Login.css";
+import "./LoginIcon.css";
 import { Link } from "react-router-dom";
-import userInterfaceIcon from "../../../public/login.png";
+import userInterfaceIcon from "../../../public/avatar-noir.png";
 
-function Login() {
+function LoginIcon() {
   return (
     <>
       <Link to="/login">
@@ -14,4 +14,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default LoginIcon;
