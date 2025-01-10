@@ -9,20 +9,20 @@
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 300px;
-  margin-bottom: 20px;
 }
 
 .plans {
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 700px;
-  height: 300px;
-  margin-bottom: 20px;
-  transform: rotate(360deg); /* Équivalent à rotateZ(360 deg) */
+  width: 300px;
+  transform: rotate(360deg);
 }
 
 @media (min-width: 375px) {
   .services {
+    width: 350px;
+  }
+  .plans {
     width: 350px;
   }
 }
@@ -31,9 +31,15 @@
   .services {
     width: 400px;
   }
+  .plans {
+    width: 400px;
+  }
 }
 @media (min-width: 475px) {
   .services {
+    width: 450px;
+  }
+  .plans {
     width: 450px;
   }
 }
@@ -41,28 +47,40 @@
   .services {
     width: 500px;
   }
+  .plans {
+    width: 500px;
+  }
 }
 @media (min-width: 600px) {
   .services {
+    width: 550px;
+  }
+  .plans {
     width: 550px;
   }
 }
 
 @media (min-width: 768px) {
   .services {
-    width: 350px;
-    height: 250px;
+    width: 550px;
+  }
+  .plans {
+    width: 550px;
   }
 }
 @media (min-width: 1024px) {
   .services {
-    width: 475px;
-    height: 375px;
+    width: 600px;
+  }
+  .plans {
+    width: 600px;
   }
 }
 @media (min-width: 1440px) {
   .services {
-    width: 600px;
-    height: 500px;
+    width: 650px;
+  }
+  .plans {
+    width: 650px;
   }
 }
