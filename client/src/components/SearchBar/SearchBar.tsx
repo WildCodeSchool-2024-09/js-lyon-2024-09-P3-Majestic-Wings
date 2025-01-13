@@ -13,7 +13,7 @@ const SearchBar = () => {
   const [arrivalID, setarrivalID] = useState("");
   const [departureID, setDepartureID] = useState("");
   useEffect(() => {
-    fetch("http://localhost:3310/api/airports")
+    fetch(`${import.meta.env.VITE_API_URL}/api/airports`)
       .then((res) => res.json())
       .then((airports) => setQuery(airports));
   }, []);
@@ -21,6 +21,7 @@ const SearchBar = () => {
   return (
     <>
       <h2 className="SearchTitle">Rechercher un vol</h2>
+
       <div className="SearchFull">
         <label className="LabelSearchBar">
           <select

@@ -1,37 +1,55 @@
 import { useState } from "react";
 import "./MenuBurger.css";
 import { Link } from "react-router-dom";
-
+import CloseMenu from "../../../public/close.png";
+import OpenMenu from "../../../public/menu-bar.png";
 const BurgerMenu = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpenMenu, setIsOpenMenu] = useState(false);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
+  const handleOpeningMenu = () => {
+    setIsOpenMenu(!isOpenMenu);
   };
 
-  return (
-    <div className="burger-menu">
-      <div
-        className={`burger-icon ${isOpen ? "open" : ""}`}
-        onKeyDown={toggleMenu}
-        onClick={toggleMenu}
-      >
-        <div className="burgerbarre" />
-        <div className="burgerbarre" />
-        <div className="burgerbarre" />
-      </div>
+  const handeCloseMenu = () => {
+    setIsOpenMenu(false);
+  };
+  const navigation = [
+    { id: 1, url: "/", name: "Accueil" },
+    { id: 2, url: "/planes", name: "Avions" },
+    { id: 3, url: "/login", name: "Se connecter" },
+    { id: 4, url: "/backoffice/action", name: "Contact" },
+  ];
 
-      <nav className={`menu ${isOpen ? "menu-open" : ""}`}>
+  return (
+    <>
+      <button type="button" onClick={handleOpeningMenu} className="menu_btn">
+        <img
+          className="menu_icon"
+          src={isOpenMenu === false ? OpenMenu : CloseMenu}
+          alt=""
+        />
+      </button>
+
+      <div
+        className={`opened_menu_container ${
+          isOpenMenu === true ? "right_to_left display_flex" : "display_none"
+        }`}
+      >
         <ul>
-          <Link to="/">
-            <li>Accueil</li>
-          </Link>
-          <li>À propos</li>
-          <li>Services</li>
-          <li>Contact</li>
+          {navigation.map((link) => (
+            <li key={link.id} className="list_element_burger">
+              <Link
+                to={link.url}
+                onClick={handeCloseMenu}
+                className="mobile_link"
+              >
+                {link.name}
+              </Link>
+            </li>
+          ))}
         </ul>
-      </nav>
-    </div>
+      </div>
+    </>
   );
 };
 

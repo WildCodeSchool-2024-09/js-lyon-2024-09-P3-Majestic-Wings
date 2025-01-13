@@ -14,6 +14,9 @@ router.get("/api/items/:id", itemActions.read);
 router.post("/api/items", itemActions.add);
 
 /* ************************************************************************* */
+import AirportsAction from "./modules/Airports/AirportsAction";
+router.get("/api/airports", AirportsAction.browse);
+
 import PlanesAction from "./modules/Planes/PlanesAction";
 router.get("/api/planes", PlanesAction.browse);
 
