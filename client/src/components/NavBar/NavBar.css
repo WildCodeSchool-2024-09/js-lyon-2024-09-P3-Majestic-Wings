@@ -96,7 +96,7 @@
   transition-duration: 1s;
   transition-delay: 0s;
   transition-timing-function: ease-in;
-  padding-bottom: 10px;
+  padding-bottom: 5px;
 }
 
 @media (min-width: 768px) {
@@ -127,7 +127,7 @@ a {
   border-radius: 150px;
 }
 .logo {
-  width: 250px;
+  width: 260px;
 }
 .LogoTop {
   background-image: url("../../../public/logo-noir.png");
