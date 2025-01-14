@@ -28,5 +28,6 @@ router.get("/api/options", OptionsAction.browse);
 
 import UserActions from "./modules/User/UserActions";
 router.get("/api/user", UserActions.browse);
+router.put("/api/user", UserActions.add);
 
 export default router;
