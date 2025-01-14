@@ -15,7 +15,7 @@ class UserRepository {
   async readAll() {
     // Execute the SQL SELECT query to retrieve all items from the "item" table
     const [rows] = await databaseClient.query<Rows>(
-      "SELECT * from USER order by lastname ASC"
+      "SELECT * from USER order by lastname ASC",
     );
 
     // Return the array of items
@@ -26,7 +26,7 @@ class UserRepository {
     // Execute the SQL SELECT query to retrieve a specific category by its ID
     const [rows] = await databaseClient.query<Rows>(
       "SELECT * from USER where id = ?",
-      [id]
+      [id],
     );
 
     // Return the first row of the result, which represents the category
