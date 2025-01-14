@@ -26,7 +26,7 @@ router.get("/api/services", ServicesAction.browse);
 import OptionsAction from "./modules/Options/OptionsAction";
 router.get("/api/options", OptionsAction.browse);
 
-import AirportsAction from "./modules/Airports/AirportsAction";
-router.get("/api/airports", AirportsAction.browse);
+import UserActions from "./modules/User/UserActions";
+router.get("/api/user", UserActions.browse);
 
 export default router;

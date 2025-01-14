@@ -1,4 +1,4 @@
-create table plane(
+CREATE TABLE plane(
   id int unsigned primary key auto_increment not null,
   brand varchar(100) not null,
   model varchar(100) not null,
@@ -9,7 +9,7 @@ create table plane(
   image text not null
 );
 
-insert into plane(brand, model, capacity, autonomy, speed, luggages, image)
+INSERT INTO plane(brand, model, capacity, autonomy, speed, luggages, image)
 values
 ("Gulfstream", "G650", 18, 13000, 982, 195, "https://aerocontact.b-cdn.net/public/img/aviaexpo/produits/images/580/detail_Gulfstream-G650ER_900x636.jpg"),
 ("Bombardier", "Global 7500", 19, 14260, 982, 195, "https://www.aerobuzz.fr/wp-content/uploads/2024/08/Global-7500-On-Ground-Side-Shot-Left.jpeg"),
@@ -32,27 +32,27 @@ values
 ("Embraer", "Phenom 300E", 11, 3700, 859, 74, "https://globaljet.aero/sites/default/files/2021-01/Embraer%20Phenm%20300%20Exterior.jpg"),
 ("Cessna", "Citation CJ4", 10, 3708, 835, 770, "https://cdn.flightsim.to/images/20/cessna-citation-cj4-n347cz-yaLJg.jpg?width=800");
 
-create table service(
+CREATE TABLE service(
   service_code  varchar(3) primary key not null,
   service_libelle varchar(50) not null,
   service_photo varchar(150) not null,
   service_plan  varchar(150) not null
 );
 
-insert into service(service_code,service_libelle,service_photo,service_plan)
+INSERT INTO service(service_code,service_libelle,service_photo,service_plan)
 values
   ("CLC", "Cabine Long Courier", "https://www.avico.com/wp-content/uploads/2022/03/034-falcon8x-2018usb55-a4-hd-scaled-e1646847361884-1641x750.jpg", "https://www.mkpartnair.com/app/uploads/Jetplane-Vue-du-haut-vertical-8-2.png"),
   ("CGC", "Grande Cabine", "https://www.themilliardaire.com/wp-content/uploads/2019/11/Gulfstream-G700-Divan-1024x683.png", "https://www.mkpartnair.com/app/uploads/Jetplane-Vue-du-haut-vertical-8-2.png"),
   ("CSM", "Cabine Super Moyenne", "https://www.themilliardaire.com/wp-content/uploads/2019/11/Gulfstream-G700-Six-Place-Dining-1024x683.png", "https://www.mkpartnair.com/app/uploads/Jetplane-Vue-du-haut-vertical-8-2.png");
 
-create table flight_option(
+CREATE TABLE flight_option(
   fligh_option_code varchar(5) primary key  not null,
   fligh_option_libelle varchar(30) not null,
   service_fligh_option varchar(3),
   foreign key (service_fligh_option) references service (service_code)
 );
 
-insert into flight_option(fligh_option_code,fligh_option_libelle,service_fligh_option)
+INSERT INTO flight_option(fligh_option_code,fligh_option_libelle,service_fligh_option)
 values
   ("SCCLC", "Siege Cuir", "CLC"),
   ("SCCGC", "Siege Cuir", "CGC"),
@@ -67,7 +67,7 @@ values
   ("BTCLC", "Salle de Conference", "CLC"),
   ("BTCGC", "Salle de Jeux", "CGC");
   
-create table airports(
+CREATE TABLE airports(
 id int unsigned primary key auto_increment not null,
 size varchar(50) not null,
 name varchar(100) not null,
@@ -78,7 +78,7 @@ isoregion varchar(25) not null,
 municipality varchar(50) not null
 );
 
-insert into airports (size, name, latitude, longitude, isocountry, isoregion, municipality) 
+INSERT INTO airports (size, name, latitude, longitude, isocountry, isoregion, municipality) 
 values 
 ("large_airport","Helsinki Vantaa Airport",60.318363,24.963341,"Finland","FI-18","Helsinki"),
 ("medium_airport","Helsinki East-Redstone Aerodrome",60.479167,26.593889,"Finland","FI-09","Helsinki"),
@@ -169,3 +169,12 @@ values
 ("large_airport","Naples International Airport",40.886002,14.2908,"Italie","IT-72","Napoli"),
 ("medium_airport","Florence Airport, Peretola",43.808558,11.202822,"Italie","IT-52","Firenze (FI)"),
 ("medium_airport","Rome Urbe Airport",41.952096,12.502231,"Italie","IT-62","Rome");
+
+CREATE TABLE user(
+  id int primary key auto_increment not null,
+  firstname varchar(100) not null,
+  lastname varchar(100) not null,
+  age int not null,
+  mail varchar(100) not null,
+  phone_number int not null
+);
