@@ -29,7 +29,7 @@ const Our_Prestations = () => {
           absolue, d’un confort ultime et d’un service adapté à vos besoins.
           Prenez votre envol avec classe et distinction.
         </p>
-        <Link to="/services">
+        <Link to="/cabines">
           <button type="button" className="explore-button">
             Découvrir nos services
           </button>
