@@ -20,11 +20,11 @@ router.get("/api/airports", AirportsAction.browse);
 import PlanesAction from "./modules/Planes/PlanesAction";
 router.get("/api/planes", PlanesAction.browse);
 
-import ServicesAction from "./modules/Services/ServicesAction";
-router.get("/api/services", ServicesAction.browse);
+import CabinesActions from "./modules/Cabines/CabinesActions";
+router.get("/api/cabines", CabinesActions.browse);
 
-import OptionsAction from "./modules/Options/OptionsAction";
-router.get("/api/options", OptionsAction.browse);
+import PrestationsActions from "./modules/Prestations/PrestationsActions";
+router.get("/api/prestations", PrestationsActions.browse);
 
 import UserActions from "./modules/User/UserActions";
 router.get("/api/user", UserActions.browse);
