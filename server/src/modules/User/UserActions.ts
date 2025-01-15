@@ -26,11 +26,27 @@ const add: RequestHandler = async (req, res, next) => {
       password: req.body.password,
     };
 
-    // Create the item
-    const insertId = await UserRepository.create(newUser);
+    const check = Object.values(newUser);
 
-    // Respond with HTTP 201 (Created) and the ID of the newly inserted item
+    for (let i = 0; i < check.length; i++) {
+      if (check[i] === undefined || check[i] === null) {
+        res.sendStatus(400);
+      }
+    }
+    const insertId = await UserRepository.create(newUser);
     res.status(201).json({ insertId });
+
+    // Create the item
+    // const insertId = await UserRepository.create(newUser);
+    // // Respond with HTTP 201 (Created) and the ID of the newly inserted item
+    // res.status(201).json({ insertId });
+
+    // res.status(400);
+
+    // // Create the item
+    // const insertId = await UserRepository.create(newUser);
+    // // Respond with HTTP 201 (Created) and the ID of the newly inserted item
+    // res.status(201).json({ insertId });
   } catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);

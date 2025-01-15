@@ -15,7 +15,7 @@ type Planes = {
 
 class PlanesRepository {
   async readAll() {
-    // Execute the SQL SELECT query to retrieve all items from the "item" table
+    // Execute the SQL SELECT query to retrieve all planes from the "plane" table
     const [rows] = await databaseClient.query<Rows>("select * from plane");
 
     // Return the array of items

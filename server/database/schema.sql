@@ -177,5 +177,5 @@ CREATE TABLE user(
   age int not null,
   mail varchar(100) not null,
   phone_number int not null,
-  password varchar(20) not null
+  password varchar(255) not null
 );
