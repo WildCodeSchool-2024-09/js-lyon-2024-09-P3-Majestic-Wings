@@ -8,24 +8,30 @@ const PageLogin = () => {
       <form className="form-all" action="">
         <div className="input_box">
           <img src={User} alt="identifiant" />
-          <input type="text" placeholder="Username" required />
+          <input type="email" placeholder="Identifiant ..." required />
         </div>
         <div className="input_box">
           <img src={Password} alt="password" />
-          <input type="password" placeholder="Password" required />
+          <input type="password" placeholder="Mot de passe ..." required />
         </div>
         <div className="remember_forgot">
           <label>
             <input type="checkbox" />
-            Remember me
+            Mémorisez vos identifiants
           </label>
           <br />
+          <Link to="/login/register">
+            <p>Pas de compte ? Inscrivez-vous</p>
+          </Link>
+
           <Link to="/">
             {" "}
-            <p>Forgot password?</p>
+            <p>Mot de passe oublié ? </p>
           </Link>
+          <button type="button" className="explore-button">
+            Se connecter
+          </button>
         </div>
-        <button type="submit">Sign me</button>
       </form>
     </div>
   );

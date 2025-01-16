@@ -172,10 +172,10 @@ values
 
 CREATE TABLE user(
   id int primary key auto_increment not null,
-  firstname varchar(100) not null,
-  lastname varchar(100) not null,
-  age int not null,
-  mail varchar(100) not null,
-  phone_number int not null,
-  password varchar(20) not null
+  firstname varchar(100) null,
+  lastname varchar(100) null,
+  age int null,
+  mail varchar(100) null,
+  phone_number varchar(50) null,
+  password varchar(20) null
 );
