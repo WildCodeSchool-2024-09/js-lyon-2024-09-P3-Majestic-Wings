@@ -14,7 +14,7 @@ type User = {
 
 class UserRepository {
   async create(user: Omit<User, "id">) {
-    // Execute the SQL INSERT query to add a new item to the "item" table
+    // Execute the SQL INSERT query to add a new user to the "user" table
     const [result] = await databaseClient.query<Result>(
       "INSERT INTO user (firstname, lastname, age, mail, phone_number, password) values (?, ?, ?, ?, ?, ?)",
       [

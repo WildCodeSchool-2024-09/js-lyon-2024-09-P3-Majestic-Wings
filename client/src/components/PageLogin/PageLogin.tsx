@@ -20,7 +20,7 @@ const PageLogin = () => {
             Mémorisez vos identifiants
           </label>
           <br />
-          <Link to="/login/register">
+          <Link to="/login/registration">
             <p>Pas de compte ? Inscrivez-vous</p>
           </Link>
 
@@ -28,7 +28,7 @@ const PageLogin = () => {
             {" "}
             <p>Mot de passe oublié ? </p>
           </Link>
-          <button type="button" className="explore-button">
+          <button type="submit" className="explore-button">
             Se connecter
           </button>
         </div>

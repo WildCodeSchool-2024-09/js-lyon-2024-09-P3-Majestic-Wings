@@ -1,0 +1,94 @@
+.divServices {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 70px;
+  gap: 15px;
+}
+
+.services {
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+
+.plans {
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  transform: rotate(360deg);
+}
+h2 {
+  font-size: 1.5rem;
+}
+
+@media (min-width: 375px) {
+  .services {
+    width: 350px;
+  }
+  .plans {
+    width: 350px;
+  }
+}
+
+@media (min-width: 425px) {
+  .services {
+    width: 400px;
+  }
+  .plans {
+    width: 400px;
+  }
+}
+@media (min-width: 475px) {
+  .services {
+    width: 450px;
+  }
+  .plans {
+    width: 450px;
+  }
+}
+@media (min-width: 530px) {
+  .services {
+    width: 500px;
+  }
+  .plans {
+    width: 500px;
+  }
+}
+@media (min-width: 600px) {
+  .services {
+    width: 550px;
+  }
+  .plans {
+    width: 550px;
+  }
+}
+
+@media (min-width: 768px) {
+  .services {
+    width: 550px;
+  }
+  .plans {
+    width: 550px;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .services {
+    width: 600px;
+  }
+  .plans {
+    width: 600px;
+  }
+}
+@media (min-width: 1440px) {
+  .services {
+    width: 650px;
+  }
+  .plans {
+    width: 650px;
+  }
+}
