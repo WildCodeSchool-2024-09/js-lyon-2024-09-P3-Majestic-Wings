@@ -8,8 +8,8 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 // Import the main app component
 import App from "./App";
 import PageLogin from "./components/PageLogin/PageLogin";
+import CabinesPage from "./pages/CabinesPage";
 import PlanesPage from "./pages/PlanesPage";
-import ServicesPage from "./pages/ServicesPages";
 import WelcomePage from "./pages/WelcomePage";
 
 // Import additional components for new routes
@@ -35,8 +35,8 @@ const router = createBrowserRouter([
         element: <PlanesPage />,
       },
       {
-        path: "/services",
-        element: <ServicesPage />,
+        path: "/cabines",
+        element: <CabinesPage />,
       },
       {
         path: "/login",
