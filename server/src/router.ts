@@ -23,8 +23,8 @@ router.get("/api/planes", PlanesAction.browse);
 import CabinesActions from "./modules/Cabines/CabinesActions";
 router.get("/api/cabines", CabinesActions.browse);
 
-import PrestationsActions from "./modules/Prestations/PrestationsActions";
-router.get("/api/prestations", PrestationsActions.browse);
+import PrestationsAction from "./modules/Prestations/PrestationsAction";
+router.get("/api/prestations", PrestationsAction.browse);
 
 import UserActions from "./modules/User/UserActions";
 // router.get("/api/user", UserActions.browse);
