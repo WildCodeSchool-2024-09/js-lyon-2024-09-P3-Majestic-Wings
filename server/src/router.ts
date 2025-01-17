@@ -27,7 +27,8 @@ import PrestationsAction from "./modules/Prestations/PrestationsAction";
 router.get("/api/prestations", PrestationsAction.browse);
 
 import UserActions from "./modules/User/UserActions";
-router.get("/api/user", UserActions.browse);
+// router.get("/api/user", UserActions.browse);
+// router.get("/api/user/:id", UserActions.read)
 router.post("/api/user", UserActions.add);
 
 export default router;
