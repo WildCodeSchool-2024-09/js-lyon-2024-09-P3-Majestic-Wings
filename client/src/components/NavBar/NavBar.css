@@ -144,3 +144,9 @@ a {
   transition-delay: 0s;
   transition-timing-function: ease-in;
 }
+
+@media (max-width: 350px) {
+  .loginButton img {
+    display: none;
+  }
+}
