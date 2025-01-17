@@ -72,7 +72,11 @@ const NavBar = () => {
         </div>
         <Link to="/login">
           <div className="loginButton">
-            <img src={userInterfaceIcon} alt="Login button" />
+            <img
+              src={userInterfaceIcon}
+              alt="Login button"
+              className="loginface"
+            />
           </div>
         </Link>
       </nav>
