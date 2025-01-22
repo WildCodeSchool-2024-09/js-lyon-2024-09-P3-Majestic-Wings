@@ -180,10 +180,6 @@ values
   ("RECLC", "Restauration", "CLC"),
   ("BTCLC", "Salle de Conference", "CLC"),
   ("BTCGC", "Salle de Jeux", "CGC");
-  
-
-
-
 
 CREATE TABLE user(
   id int primary key auto_increment not null,
@@ -191,7 +187,7 @@ CREATE TABLE user(
   lastname varchar(100) not null,
   age int not null,
   mail varchar(100) not null,
-  phone_number int not null,
-  password varchar(255) not null
+  phone_number varchar(50) not null,
+  hashed_password varchar(255) not null
 );
 

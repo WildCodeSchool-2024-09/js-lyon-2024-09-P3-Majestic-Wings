@@ -5,7 +5,19 @@ import userInterfaceIcon from "../../../public/avatar-noir.png";
 import CloseMenu from "../../../public/close.png";
 import OpenMenu from "../../../public/menu-bar.png";
 
+type User = {
+  id: number;
+  mail: string;
+};
+
+type Auth = {
+  user: User;
+  token: string;
+};
+
 const NavBar = () => {
+  const [auth, setAuth] = useState(null as Auth | null);
+
   const [scrollPos, setScrollPos] = useState(0);
 
   useEffect(() => {
@@ -34,7 +46,6 @@ const NavBar = () => {
     { id: 1, url: "/", name: "Accueil" },
     { id: 2, url: "/planes", name: "Avions" },
     { id: 3, url: "/login", name: "Se connecter" },
-    { id: 4, url: "/backoffice/action", name: "Contact" },
   ];
 
   return (
@@ -65,6 +76,18 @@ const NavBar = () => {
                 </Link>
               </li>
             ))}
+            {auth !== null && (
+              <li>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setAuth(null);
+                  }}
+                >
+                  Logout
+                </button>
+              </li>
+            )}
           </ul>
         </div>
         <div className={window.scrollY === 0 ? "LogoTop" : "Logoscrolled"}>

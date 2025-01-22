@@ -6,7 +6,19 @@ import Footer from "./components/Footer/Footer";
 // import BurgerMenu from "./components/MenuBurger/MenuBurger";
 import NavBar from "./components/NavBar/NavBar";
 
+import { Bounce, ToastContainer } from "react-toastify";
+
+type User = {
+  id: number;
+  mail: string;
+};
+type Auth = {
+  user: User;
+  token: string;
+};
+
 export default function App() {
+  const [auth, setAuth] = useState(null as Auth | null);
   const [scrollPos, setScrollPos] = useState(0);
 
   useEffect(() => {
@@ -24,7 +36,20 @@ export default function App() {
   return (
     <>
       <NavBar />
-      <Outlet />
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition={Bounce}
+      />
+      <Outlet context={{ auth, setAuth }} />
       <Footer />
     </>
   );
