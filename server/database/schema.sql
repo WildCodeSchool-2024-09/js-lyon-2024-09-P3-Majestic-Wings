@@ -6,7 +6,8 @@ CREATE TABLE plane(
   autonomy int not null,
   speed int not null,
   luggages int not null,
-  image text not null
+  image text not null,
+  availability BOOLEAN DEFAULT 1; -- 1: disponible, 0: non disponible
 );
 
 INSERT INTO plane(brand, model, capacity, autonomy, speed, luggages, image)
@@ -180,3 +181,42 @@ CREATE TABLE user(
   password varchar(255) not null
 );
 
+CREATE TABLE reservation (
+  id_reservation INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
+  id_user INT UNSIGNED NOT NULL,
+  id_plane INT UNSIGNED NOT NULL,
+  date_reservation DATE NOT NULL,
+  status ENUM('confirmée', 'en attente', 'annulée') DEFAULT 'en attente',
+  FOREIGN KEY (id_user) REFERENCES users(id),
+  FOREIGN KEY (id_plane) REFERENCES plane(id)
+);
+
+-- Exemple de mise à jour de la disponibilité lors d'une réservation confirmée
+DELIMITER //
+
+CREATE TRIGGER after_reservation_insert
+AFTER INSERT ON reservation
+FOR EACH ROW
+BEGIN
+  IF NEW.status = 'confirmée' THEN
+    UPDATE plane SET availability = 0 WHERE id = NEW.id_plane;
+  END IF;
+END;
+//
+
+DELIMITER ;
+
+-- Exemple d'annulation de réservation qui remet l'avion disponible
+DELIMITER //
+
+CREATE TRIGGER after_reservation_update
+AFTER UPDATE ON reservation
+FOR EACH ROW
+BEGIN
+  IF OLD.status = 'confirmée' AND NEW.status = 'annulée' THEN
+    UPDATE plane SET availability = 1 WHERE id = NEW.id_plane;
+  END IF;
+END;
+//
+
+DELIMITER ;
