@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import type React from "react";
+import { useState } from "react";
 import "./Reservation.css";
 
 const ReservationPage = () => {
@@ -14,7 +15,7 @@ const ReservationPage = () => {
   });
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) => {
     const { name, value } = e.target;
     setFormData({
@@ -25,7 +26,7 @@ const ReservationPage = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Reservation Data:", formData);
+
     // TODO: Add logic to send data to the backend or API
   };
 
