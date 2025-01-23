@@ -43,7 +43,7 @@ const SearchBar = () => {
           >
             <option value="">Vers ...</option>
             {queries.map((query) => (
-              <option value={query.isocountry} key={query.isocountry}>
+              <option value={query.isocountry} key={query.id}>
                 {query.isocountry}
               </option>
             ))}

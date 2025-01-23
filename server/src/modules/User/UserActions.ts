@@ -24,7 +24,7 @@ const add: RequestHandler = async (req, res, next) => {
       age: req.body.age,
       mail: req.body.mail,
       phone_number: req.body.phone_number,
-      password: req.body.password,
+      hashed_password: req.body.hashed_password,
     };
 
     const check = Object.values(newUser);
@@ -36,20 +36,7 @@ const add: RequestHandler = async (req, res, next) => {
     }
     const insertId = await UserRepository.create(newUser);
     res.status(201).json({ insertId });
-
-    // Create the item
-    // const insertId = await UserRepository.create(newUser);
-    // // Respond with HTTP 201 (Created) and the ID of the newly inserted item
-    // res.status(201).json({ insertId });
-
-    // res.status(400);
-
-    // // Create the item
-    // const insertId = await UserRepository.create(newUser);
-    // // Respond with HTTP 201 (Created) and the ID of the newly inserted item
-    // res.status(201).json({ insertId });
   } catch (err) {
-    // Pass any errors to the error-handling middleware
     next(err);
   }
 };
@@ -62,7 +49,7 @@ const read: RequestHandler = async (req, res, next) => {
 
     // If the item is not found, respond with HTTP 404 (Not Found)
     // Otherwise, respond with the item in JSON format
-    if (user == null) {
+    if (user === null) {
       res.sendStatus(404);
     } else {
       res.json(user);
