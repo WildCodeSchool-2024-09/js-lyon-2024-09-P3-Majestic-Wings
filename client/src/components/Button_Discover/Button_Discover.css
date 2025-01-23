@@ -1,0 +1,21 @@
+h2 {
+  font-size: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #333;
+}
+.button_discover {
+  margin-bottom: 50px;
+}
+
+.button_title {
+  margin: 30px;
+}
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 1.5rem;
+  }
+}
