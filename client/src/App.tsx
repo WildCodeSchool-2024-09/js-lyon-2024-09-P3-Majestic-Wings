@@ -6,7 +6,19 @@ import Footer from "./components/Footer/Footer";
 // import BurgerMenu from "./components/MenuBurger/MenuBurger";
 import NavBar from "./components/NavBar/NavBar";
 
+type User = {
+  id: number;
+  email: string;
+  is_admin: boolean;
+};
+
+type Auth = {
+  user: User;
+  token: string;
+};
 export default function App() {
+  const [auth, setAuth] = useState(null as Auth | null);
+
   const [scrollPos, setScrollPos] = useState(0);
 
   useEffect(() => {
@@ -24,7 +36,7 @@ export default function App() {
   return (
     <>
       <NavBar />
-      <Outlet />
+      <Outlet context={{ auth, setAuth }} />
       <Footer />
     </>
   );

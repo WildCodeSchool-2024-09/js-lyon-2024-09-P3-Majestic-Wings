@@ -9,21 +9,21 @@ type User = {
   age: number;
   mail: string;
   phone_number: number;
-  password: string;
+  hashed_password: string;
 };
 
 class UserRepository {
   async create(user: Omit<User, "id">) {
     // Execute the SQL INSERT query to add a new user to the "user" table
     const [result] = await databaseClient.query<Result>(
-      "INSERT INTO user (firstname, lastname, age, mail, phone_number, password) values (?, ?, ?, ?, ?, ?)",
+      "INSERT INTO user (firstname, lastname, age, mail, phone_number, hashed_password) values (?, ?, ?, ?, ?, ?)",
       [
         user.firstname,
         user.lastname,
         user.age,
         user.mail,
         user.phone_number,
-        user.password,
+        user.hashed_password,
       ],
     );
 
@@ -48,8 +48,18 @@ class UserRepository {
       [id],
     );
 
-    // Return the first row of the result, which represents the category
     return rows[0] as User;
   }
+  async readByEmailWithPassword(email: string) {
+    // Execute the SQL SELECT query to retrieve a specific category by its ID
+    const [rows] = await databaseClient.query<Rows>(
+      "select * from user where email = ?",
+      [email],
+    );
+
+    return rows[0] as User;
+  }
+
+  // Return the first row of the result, which represents the category
 }
 export default new UserRepository();

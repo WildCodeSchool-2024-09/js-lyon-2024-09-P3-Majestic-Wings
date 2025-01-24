@@ -176,7 +176,8 @@ CREATE TABLE user(
   lastname varchar(100) not null,
   age int not null,
   mail varchar(100) not null,
-  phone_number int not null,
-  password varchar(255) not null
+  phone_number varchar(50) not null,
+hashed_password varchar(255) not null
 );
 
+-- insert into user(id, firstname,lastname,age,mail, phone_number,hashed_password)

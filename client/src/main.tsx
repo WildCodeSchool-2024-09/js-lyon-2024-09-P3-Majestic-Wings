@@ -12,6 +12,7 @@ import CabinesPage from "./pages/CabinesPage";
 import PlanesPage from "./pages/PlanesPage";
 import RegistrationPage from "./pages/RegistrationPage";
 
+import AboutPage from "./pages/AboutPage";
 import WelcomePage from "./pages/WelcomePage";
 
 // Import additional components for new routes
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: "/login/registration",
         element: <RegistrationPage />,
+      },
+      {
+        path: "/about",
+        element: <AboutPage />,
       },
     ],
   },

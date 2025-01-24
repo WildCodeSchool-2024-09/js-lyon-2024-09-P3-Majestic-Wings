@@ -24,7 +24,7 @@ const add: RequestHandler = async (req, res, next) => {
       age: req.body.age,
       mail: req.body.mail,
       phone_number: req.body.phone_number,
-      password: req.body.password,
+      hashed_password: req.body.hashed_password,
     };
 
     const check = Object.values(newUser);
