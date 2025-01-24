@@ -50,11 +50,11 @@ class UserRepository {
 
     return rows[0] as User;
   }
-  async readByEmailWithPassword(email: string) {
+  async readByEmailWithPassword(mail: string) {
     // Execute the SQL SELECT query to retrieve a specific category by its ID
     const [rows] = await databaseClient.query<Rows>(
-      "select * from user where email = ?",
-      [email],
+      "select * from user where mail = ?",
+      [mail],
     );
 
     return rows[0] as User;
