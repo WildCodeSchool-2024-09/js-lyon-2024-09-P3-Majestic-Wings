@@ -1,72 +1,3 @@
-CREATE TABLE plane(
-  id int unsigned primary key auto_increment not null,
-  brand varchar(100) not null,
-  model varchar(100) not null,
-  capacity int not null,
-  autonomy int not null,
-  speed int not null,
-  luggages int not null,
-  image text not null
-);
-
-INSERT INTO plane(brand, model, capacity, autonomy, speed, luggages, image)
-values
-("Gulfstream", "G650", 18, 13000, 982, 195, "https://aerocontact.b-cdn.net/public/img/aviaexpo/produits/images/580/detail_Gulfstream-G650ER_900x636.jpg"),
-("Bombardier", "Global 7500", 19, 14260, 982, 195, "https://www.aerobuzz.fr/wp-content/uploads/2024/08/Global-7500-On-Ground-Side-Shot-Left.jpeg"),
-("Dassault", "Falcon 8X", 14, 11945, 900, 140, "https://www.aeroflap.com.br/wp-content/uploads/2023/05/Dassault_Falcon8X_free_use.webp"),
-("Embraer", "Lineage 1000E", 19, 8519, 870, 323, "https://cdn.prod.website-files.com/6479c007a0f97cbf8f3ca330/65e0cd8fa8bcfd4cd85a2857_65ca6d6b1f754cba27bf4d02_Lineage%25201000%2520EXT.webp"),
-("Cessna", "Citation Longitude", 12, 6430, 882, 450, "https://hyper.luxe/wp-content/uploads/2022/09/longitude_notail_64c0371_8989.jpg__1200x675_q85_crop_subsampling-2_upscale.jpg"),
-("Gulfstream", "G550", 19, 12501, 941, 226, "https://i0.wp.com/www.aerobuzz.fr/wp-content/uploads/2020/06/Gulfstream-G550.jpg?fit=1000%2C624&ssl=1"),
-("Bombardier", "Global 6000", 17, 11112, 950, 195, "https://defense.bombardier.com/sites/missionized/files/DDBA0637_BSA_6000_16A2138_V1-share.jpg"),
-("Dassault", "Falcon 7X", 16, 11019, 904, 140, "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Dassault_Falcon_7X%2C_Proair_Charter_Transport_JP7526714.jpg/640px-Dassault_Falcon_7X%2C_Proair_Charter_Transport_JP7526714.jpg"),
-("Embraer","Praetor 600", 12, 7408, 863, 155, "https://jetflo.com/storage/2022/11/Praetor600_exterior-1.jpg"),
-("Cessna", "Citation X+", 12, 6112, 978, 726, "https://www.themilliardaire.com/wp-content/uploads/2014/01/cessna-citation-x-3.jpg"),
-("Gulfstream", "G500", 19, 9630, 982, 226, "https://assets.gulfstream.aero/thedotcom/images/aircraft/g500/d_g500_a_mkt_00060_PROD.jpg"),
-("Bombardier", "Challenger 650", 12, 7408, 870, 115, "https://defense.bombardier.com/sites/missionized/files/styles/social_share_image/public/2020-05/WIW%20outside%20right_0_0.jpg?itok=5MG8-Usq"),
-("Dassault", "Falcon 2000LXS", 10, 7410, 893, 140, "https://images.dassault-aviation.com/f_auto,q_auto,g_center,dpr_auto/wp-auto-upload/1/files/2022/03/DA00011345_S.jpg"),
-("Embraer", "Legacy 650E", 14, 7223, 850, 286, "https://www.mkpartnair.com/app/uploads/MKPartnair-Fleet-Private-Jet-Embraer-Legacy-650-Heavy-Jet-Exterior-1-scaled.jpg"),
-("Cessna", "Citation Sovereign+", 12, 5374, 848, 725, "https://blog.privatejetfinder.com/wp-content/uploads/2024/05/Cessna-Citation-Sovereign.jpg"),
-("Gulfstream", "G280", 10, 6667, 900, 120, "https://globaljet.aero/sites/default/files/2021-01/Gulfstream%20280%20Exterior.jpg"),
-("Bombardier", "Learjet 75 Liberty", 9, 3789, 861, 65, "https://jetflo.com/storage/2022/11/LJ75_exterior.jpg"),
-("Dassault", "Falcon 900LX", 14, 8889, 950, 127, "https://images.dassault-aviation.com/w_2000,f_auto,q_auto,g_center,dpr_auto,c_fill/wp-auto-upload/1/files/2022/03/DA00012401_S.jpg"),
-("Embraer", "Phenom 300E", 11, 3700, 859, 74, "https://globaljet.aero/sites/default/files/2021-01/Embraer%20Phenm%20300%20Exterior.jpg"),
-("Cessna", "Citation CJ4", 10, 3708, 835, 770, "https://cdn.flightsim.to/images/20/cessna-citation-cj4-n347cz-yaLJg.jpg?width=800");
-
-CREATE TABLE cabine(
-  code  varchar(3) primary key not null,
-  libelle varchar(50) not null,
-  photo varchar(150) not null,
-  plan  varchar(150) not null
-);
-
-INSERT INTO cabine(code,libelle,photo,plan)
-values
-  ("CLC", "Cabine Long Courier", "https://www.avico.com/wp-content/uploads/2022/03/034-falcon8x-2018usb55-a4-hd-scaled-e1646847361884-1641x750.jpg", "https://www.mkpartnair.com/app/uploads/Jetplane-Vue-du-haut-vertical-8-2.png"),
-  ("CGC", "Grande Cabine", "https://www.themilliardaire.com/wp-content/uploads/2019/11/Gulfstream-G700-Divan-1024x683.png", "https://www.mkpartnair.com/app/uploads/Jetplane-Vue-du-haut-vertical-8-2.png"),
-  ("CSM", "Cabine Super Moyenne", "https://www.themilliardaire.com/wp-content/uploads/2019/11/Gulfstream-G700-Six-Place-Dining-1024x683.png", "https://www.mkpartnair.com/app/uploads/Jetplane-Vue-du-haut-vertical-8-2.png");
-
-CREATE TABLE prestation(
-  code varchar(5) primary key  not null,
-  libelle varchar(30) not null,
-  prestation varchar(3),
-  foreign key (prestation) references cabine(code)
-);  
-
-INSERT INTO prestation(code,libelle,prestation)
-values
-  ("SCCLC", "Siege Cuir", "CLC"),
-  ("SCCGC", "Siege Cuir", "CGC"),
-  ("SCCSM", "Siege Cuir", "CSM"),
-  ("BACLC", "Bar", "CLC"),
-  ("BACGC", "Bar", "CGC"),
-  ("BACSM", "Bar", "CSM"),
-  ("CICLC", "Cinema", "CLC"),
-  ("CICGC", "Cinema", "CGC"),
-  ("CICSM", "Cinema", "CSM"),
-  ("RECLC", "Restauration", "CLC"),
-  ("BTCLC", "Salle de Conference", "CLC"),
-  ("BTCGC", "Salle de Jeux", "CGC");
-  
 CREATE TABLE airports(
 id int unsigned primary key auto_increment not null,
 size varchar(50) not null,
@@ -77,7 +8,6 @@ isocountry varchar(25) not null,
 isoregion varchar(25) not null,
 municipality varchar(50) not null
 );
-
 INSERT INTO airports (size, name, latitude, longitude, isocountry, isoregion, municipality) 
 values 
 ("large_airport","Helsinki Vantaa Airport",60.318363,24.963341,"Finland","FI-18","Helsinki"),
@@ -170,6 +100,87 @@ values
 ("medium_airport","Florence Airport, Peretola",43.808558,11.202822,"Italie","IT-52","Firenze (FI)"),
 ("medium_airport","Rome Urbe Airport",41.952096,12.502231,"Italie","IT-62","Rome");
 
+CREATE TABLE plane(
+  id int unsigned primary key auto_increment not null,
+  brand varchar(100) not null,
+  model varchar(100) not null,
+  capacity int not null,
+  autonomy int not null,
+  speed int not null,
+  luggages int not null,
+  image text not null,
+  airport_id int unsigned not null,
+  foreign key (airport_id) references airports(id)
+);
+
+INSERT INTO plane(brand, model, capacity, autonomy, speed, luggages, image, airport_id)
+values
+("Gulfstream", "G650", 18, 13000, 982, 195, "https://aerocontact.b-cdn.net/public/img/aviaexpo/produits/images/580/detail_Gulfstream-G650ER_900x636.jpg", 1),
+("Bombardier", "Global 7500", 19, 14260, 982, 195, "https://www.aerobuzz.fr/wp-content/uploads/2024/08/Global-7500-On-Ground-Side-Shot-Left.jpeg",20),
+("Dassault", "Falcon 8X", 14, 11945, 900, 140, "https://www.aeroflap.com.br/wp-content/uploads/2023/05/Dassault_Falcon8X_free_use.webp",18),
+("Embraer", "Lineage 1000E", 19, 8519, 870, 323, "https://cdn.prod.website-files.com/6479c007a0f97cbf8f3ca330/65e0cd8fa8bcfd4cd85a2857_65ca6d6b1f754cba27bf4d02_Lineage%25201000%2520EXT.webp",40),
+("Cessna", "Citation Longitude", 12, 6430, 882, 450, "https://hyper.luxe/wp-content/uploads/2022/09/longitude_notail_64c0371_8989.jpg__1200x675_q85_crop_subsampling-2_upscale.jpg",5),
+("Gulfstream", "G550", 19, 12501, 941, 226, "https://i0.wp.com/www.aerobuzz.fr/wp-content/uploads/2020/06/Gulfstream-G550.jpg?fit=1000%2C624&ssl=1",7),
+("Bombardier", "Global 6000", 17, 11112, 950, 195, "https://defense.bombardier.com/sites/missionized/files/DDBA0637_BSA_6000_16A2138_V1-share.jpg",10),
+("Dassault", "Falcon 7X", 16, 11019, 904, 140, "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Dassault_Falcon_7X%2C_Proair_Charter_Transport_JP7526714.jpg/640px-Dassault_Falcon_7X%2C_Proair_Charter_Transport_JP7526714.jpg",50),
+("Embraer","Praetor 600", 12, 7408, 863, 155, "https://jetflo.com/storage/2022/11/Praetor600_exterior-1.jpg",70),
+("Cessna", "Citation X+", 12, 6112, 978, 726, "https://www.themilliardaire.com/wp-content/uploads/2014/01/cessna-citation-x-3.jpg",80),
+("Gulfstream", "G500", 19, 9630, 982, 226, "https://assets.gulfstream.aero/thedotcom/images/aircraft/g500/d_g500_a_mkt_00060_PROD.jpg",9),
+("Bombardier", "Challenger 650", 12, 7408, 870, 115, "https://defense.bombardier.com/sites/missionized/files/styles/social_share_image/public/2020-05/WIW%20outside%20right_0_0.jpg?itok=5MG8-Usq",85),
+("Dassault", "Falcon 2000LXS", 10, 7410, 893, 140, "https://images.dassault-aviation.com/f_auto,q_auto,g_center,dpr_auto/wp-auto-upload/1/files/2022/03/DA00011345_S.jpg",45),
+("Embraer", "Legacy 650E", 14, 7223, 850, 286, "https://www.mkpartnair.com/app/uploads/MKPartnair-Fleet-Private-Jet-Embraer-Legacy-650-Heavy-Jet-Exterior-1-scaled.jpg",47),
+("Cessna", "Citation Sovereign+", 12, 5374, 848, 725, "https://blog.privatejetfinder.com/wp-content/uploads/2024/05/Cessna-Citation-Sovereign.jpg",52),
+("Gulfstream", "G280", 10, 6667, 900, 120, "https://globaljet.aero/sites/default/files/2021-01/Gulfstream%20280%20Exterior.jpg",53),
+("Bombardier", "Learjet 75 Liberty", 9, 3789, 861, 65, "https://jetflo.com/storage/2022/11/LJ75_exterior.jpg",15),
+("Dassault", "Falcon 900LX", 14, 8889, 950, 127, "https://images.dassault-aviation.com/w_2000,f_auto,q_auto,g_center,dpr_auto,c_fill/wp-auto-upload/1/files/2022/03/DA00012401_S.jpg",17),
+("Embraer", "Phenom 300E", 11, 3700, 859, 74, "https://globaljet.aero/sites/default/files/2021-01/Embraer%20Phenm%20300%20Exterior.jpg",75),
+("Cessna", "Citation CJ4", 10, 3708, 835, 770, "https://cdn.flightsim.to/images/20/cessna-citation-cj4-n347cz-yaLJg.jpg?width=800",72),
+("Gulfstream", "G700", 19, 13890, 982, 220, "https://i0.wp.com/www.aerobuzz.fr/wp-content/uploads/2024/04/G700-en-vol-montagne.jpg?fit=800%2C546&ssl=1",73),
+("Bombardier", "Global 8000", 19, 14631, 982, 235, "https://cdn.prod.website-files.com/6479c007a0f97cbf8f3ca330/65e0cd8d1d0c345e0f89dba5_65ca67ba6f3c0fb91b218369_Global-8000%2520EXT.webp",62),
+("Dassault", "Falcon 10X", 19, 13890, 970, 175,"https://i.f1g.fr/media/eidos/orig/2021/05/06/XVM658f59fa-ae75-11eb-96fa-78334c940b20.jpg",63),
+("Embraer", "Praetor 500", 9, 6019,863, 135, "https://aeroaffaires.fr/wp-content/uploads/2019/07/praetor-500-i-aeroaffaires-e1564659460334.jpg",58),
+("Cessna", "Citation M2", 7, 2871, 748, 50, "https://cessna.txtav.com/-/media/cessna/images/aircraft/jets/m2-gen3/exterior-gallery/m2-gen3-exterior-1.ashx",65),
+("HondaJet", "Elite II", 6, 2865, 782, 65, "https://www.aeroflap.com.br/wp-content/uploads/2024/08/Hondajet-Elite-II-free-use.jpg",73),
+("Piaggio", "Avanti Evo", 9, 2700, 732, 175,"https://www.shutterstock.com/image-photo/balikpapan-borneo-indonesia-24-april-600nw-1326523718.jpg",74),
+("Beechcraft", "Premier 1A", 6, 2778, 863, 100, "https://aircharterservice-globalcontent-live.cphostaccess.com/images/aircraft-guide-images/private/beechcraft-premier-ii-main_tcm36-4524.jpg",30),
+("Pilatus", "PC-24", 9, 3610, 815, 200, "https://aerocontact.b-cdn.net/public/img/aviaexpo/produits/images/87/detail_pilatus-pc-24_900x636.jpg",35),
+("Learjet", "85", 8, 5556, 870, 150, "https://aeroaffaires.fr/wp-content/uploads/2018/08/learjet_85_large_croped.jpg",38);
+
+CREATE TABLE cabine(
+  code  varchar(3) primary key not null,
+  libelle varchar(50) not null,
+  photo varchar(150) not null,
+  plan  varchar(150) not null
+);
+
+INSERT INTO cabine(code,libelle,photo,plan)
+values
+  ("CLC", "Cabine Long Courier", "https://www.avico.com/wp-content/uploads/2022/03/034-falcon8x-2018usb55-a4-hd-scaled-e1646847361884-1641x750.jpg", "https://www.mkpartnair.com/app/uploads/Jetplane-Vue-du-haut-vertical-8-2.png"),
+  ("CGC", "Grande Cabine", "https://www.themilliardaire.com/wp-content/uploads/2019/11/Gulfstream-G700-Divan-1024x683.png", "https://www.mkpartnair.com/app/uploads/Jetplane-Vue-du-haut-vertical-8-2.png"),
+  ("CSM", "Cabine Super Moyenne", "https://www.themilliardaire.com/wp-content/uploads/2019/11/Gulfstream-G700-Six-Place-Dining-1024x683.png", "https://www.mkpartnair.com/app/uploads/Jetplane-Vue-du-haut-vertical-8-2.png");
+
+CREATE TABLE prestation(
+  code varchar(5) primary key  not null,
+  libelle varchar(30) not null,
+  prestation varchar(3),
+  foreign key (prestation) references cabine(code)
+);  
+
+INSERT INTO prestation(code,libelle,prestation)
+values
+  ("SCCLC", "Siege Cuir", "CLC"),
+  ("SCCGC", "Siege Cuir", "CGC"),
+  ("SCCSM", "Siege Cuir", "CSM"),
+  ("BACLC", "Bar", "CLC"),
+  ("BACGC", "Bar", "CGC"),
+  ("BACSM", "Bar", "CSM"),
+  ("CICLC", "Cinema", "CLC"),
+  ("CICGC", "Cinema", "CGC"),
+  ("CICSM", "Cinema", "CSM"),
+  ("RECLC", "Restauration", "CLC"),
+  ("BTCLC", "Salle de Conference", "CLC"),
+  ("BTCGC", "Salle de Jeux", "CGC");
+
 CREATE TABLE user(
   id int primary key auto_increment not null,
   firstname varchar(100) not null,
@@ -177,7 +188,7 @@ CREATE TABLE user(
   age int not null,
   mail varchar(100) not null,
   phone_number varchar(50) not null,
-hashed_password varchar(255) not null
+  hashed_password varchar(255) not null
 );
 
 -- insert into user(id, firstname,lastname,age,mail, phone_number,hashed_password)

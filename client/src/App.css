@@ -10,3 +10,58 @@ body {
   margin: 0;
   background-color: var(--backgroundColor);
 }
+.Nodisplay {
+  font-size: 1.5rem;
+  min-height: 100vh;
+  padding-top: 50px;
+  justify-items: center;
+  text-align: center;
+}
+.Airport {
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+
+@media (min-width: 375px) {
+  .Airport {
+    width: 350px;
+  }
+}
+
+@media (min-width: 425px) {
+  .Airport {
+    width: 400px;
+  }
+}
+@media (min-width: 475px) {
+  .Airport {
+    width: 450px;
+  }
+}
+@media (min-width: 530px) {
+  .Airport {
+    width: 500px;
+  }
+}
+@media (min-width: 600px) {
+  .Airport {
+    width: 550px;
+  }
+}
+
+@media (min-width: 768px) {
+  .Airport {
+    width: 550px;
+  }
+}
+@media (min-width: 1024px) {
+  .Airport {
+    width: 650px;
+  }
+}
+@media (min-width: 1440px) {
+  .Airport {
+    width: 700px;
+  }
+}

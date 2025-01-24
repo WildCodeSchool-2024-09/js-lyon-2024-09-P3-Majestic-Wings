@@ -59,7 +59,5 @@ class UserRepository {
 
     return rows[0] as User;
   }
-
-  // Return the first row of the result, which represents the category
 }
 export default new UserRepository();

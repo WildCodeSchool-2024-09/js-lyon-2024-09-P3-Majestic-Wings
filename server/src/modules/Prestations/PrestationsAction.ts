@@ -5,9 +5,9 @@ import PrestationsRepository from "./PrestationsRepository";
 const browse: RequestHandler = async (req, res, next) => {
   try {
     // Fetch all items
-    const prestation = await PrestationsRepository.readAll();
+    const prestations = await PrestationsRepository.readAll();
     // Respond with the items in JSON format
-    res.json(prestation);
+    res.json(prestations);
   } catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);
