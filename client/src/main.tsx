@@ -12,6 +12,7 @@ import CabinesPage from "./pages/CabinesPage";
 import PlanesPage from "./pages/PlanesPage";
 import RegistrationPage from "./pages/RegistrationPage";
 
+import Reservation from "./components/Reservation/Reservation";
 import WelcomePage from "./pages/WelcomePage";
 
 // Import additional components for new routes
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: "/planes",
         element: <PlanesPage />,
+      },
+      {
+        path: "/reservation",
+        element: <Reservation />,
       },
       {
         path: "/cabines",

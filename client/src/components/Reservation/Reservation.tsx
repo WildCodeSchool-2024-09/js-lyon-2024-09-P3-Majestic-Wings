@@ -2,10 +2,10 @@ import type React from "react";
 import { useState } from "react";
 import "./Reservation.css";
 
-const ReservationPage = () => {
+const Reservation = () => {
   const [formData, setFormData] = useState({
     fullName: "",
-    email: "",
+    mail: "",
     phone: "",
     jetType: "",
     departureDate: "",
@@ -34,39 +34,6 @@ const ReservationPage = () => {
     <div className="reservationwrap">
       <h1>Réservation de jet</h1>
       <form onSubmit={handleSubmit}>
-        <label>
-          Nom complet:
-          <input
-            type="text"
-            name="fullName"
-            value={formData.fullName}
-            onChange={handleInputChange}
-            required
-          />
-        </label>
-
-        <label>
-          Email :
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            required
-          />
-        </label>
-
-        <label>
-          Téléphone :
-          <input
-            type="tel"
-            name="phone"
-            value={formData.phone}
-            onChange={handleInputChange}
-            required
-          />
-        </label>
-
         <label>
           Jet :
           <select
@@ -114,7 +81,7 @@ const ReservationPage = () => {
         </label>
 
         <label>
-          Destination:
+          Arrivée :
           <input
             type="text"
             name="destination"
@@ -130,4 +97,4 @@ const ReservationPage = () => {
   );
 };
 
-export default ReservationPage;
+export default Reservation;
