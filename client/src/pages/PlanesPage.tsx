@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import { Link } from "react-router-dom";
 import Planes from "../components/Planes/Planes";
 
 interface PlanesProps {
@@ -7,6 +7,11 @@ interface PlanesProps {
   brand: string;
   model: string;
   image: string;
+  capacity: number;
+  autonomy: number;
+  speed: number;
+  luggages: number;
+  airport_id: number;
 }
 
 function PlanesPage() {
@@ -21,7 +26,9 @@ function PlanesPage() {
     <>
       <section className="sectionPlane">
         {plane.map((display) => (
-          <Planes PlanesData={display} key={display.id} />
+          <Link to={`/planes/${display.id}`} key={display.id}>
+            <Planes PlanesData={display} />
+          </Link>
         ))}
       </section>
     </>

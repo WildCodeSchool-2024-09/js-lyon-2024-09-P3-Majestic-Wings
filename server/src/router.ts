@@ -10,7 +10,7 @@ const router = express.Router();
 // import itemActions from "./modules/item/itemActions";
 
 // router.get("/api/items", itemActions.browse);
-// router.get("/api/items/:id", itemActions.read);
+
 // router.post("/api/items", itemActions.add);
 
 /* ************************************************************************* */
@@ -19,7 +19,7 @@ router.get("/api/airports", AirportsAction.browse);
 
 import PlanesAction from "./modules/Planes/PlanesAction";
 router.get("/api/planes", PlanesAction.browse);
-
+router.get("/api/planes/:id", PlanesAction.read);
 import CabinesActions from "./modules/Cabines/CabinesActions";
 router.get("/api/cabines", CabinesActions.browse);
 
