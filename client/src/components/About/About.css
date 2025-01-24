@@ -1,0 +1,174 @@
+.about {
+  padding-top: 70px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.about2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1rem;
+  text-align: center;
+}
+.picture_equipe {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+h2 {
+  font-size: 1.5rem;
+}
+.descriptif1 {
+  font-size: 1rem;
+}
+
+.pilote {
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.descriptif2 {
+  font-size: 1rem;
+  text-align: center;
+}
+.interior {
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+@media (min-width: 375px) {
+  .interior {
+    width: 350px;
+  }
+  .pilote {
+    width: 350px;
+  }
+}
+
+@media (min-width: 425px) {
+  .interior {
+    width: 400px;
+  }
+  .pilote {
+    width: 400px;
+  }
+}
+@media (min-width: 475px) {
+  .interior {
+    width: 450px;
+  }
+  .pilote {
+    width: 450px;
+  }
+}
+@media (min-width: 530px) {
+  .interior {
+    width: 500px;
+  }
+  .pilote {
+    width: 500px;
+  }
+}
+@media (min-width: 600px) {
+  .interior {
+    width: 550px;
+  }
+  .pilote {
+    width: 550px;
+  }
+}
+
+@media (min-width: 768px) {
+  .interior {
+    width: 300px;
+    margin-right: 15px;
+  }
+  .pilote {
+    width: 300px;
+    margin-left: 15px;
+  }
+  .about2 {
+    gap: 20px;
+    display: flex;
+    flex-direction: row;
+    text-align: justify;
+    margin-right: 15px;
+  }
+  .picture_equipe {
+    gap: 20px;
+    display: flex;
+    flex-direction: row-reverse;
+    text-align: justify;
+    margin-left: 15px;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 880px) {
+  .descriptif1 {
+    font-size: 1.1rem;
+  }
+  .descriptif2 {
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .interior {
+    width: 400px;
+  }
+  .pilote {
+    width: 400px;
+  }
+  .about2 {
+    gap: 20px;
+    display: flex;
+    flex-direction: row;
+    text-align: justify;
+  }
+  .picture_equipe {
+    gap: 20px;
+    display: flex;
+    flex-direction: row-reverse;
+    text-align: justify;
+  }
+  .descriptif1 {
+    font-size: 1.3rem;
+  }
+  .descriptif2 {
+    font-size: 1.3rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+}
+@media (min-width: 1440px) {
+  .interior {
+    width: 500px;
+  }
+  .pilote {
+    width: 500px;
+  }
+  .about2 {
+    gap: 20px;
+    display: flex;
+    flex-direction: row;
+    text-align: justify;
+  }
+  .picture_equipe {
+    gap: 20px;
+    display: flex;
+    flex-direction: row-reverse;
+    text-align: justify;
+  }
+  .descriptif1 {
+    font-size: 1.5rem;
+  }
+  .descriptif2 {
+    font-size: 1.5rem;
+  }
+}

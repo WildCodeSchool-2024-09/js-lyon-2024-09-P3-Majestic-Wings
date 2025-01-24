@@ -191,3 +191,4 @@ CREATE TABLE user(
   hashed_password varchar(255) not null
 );
 
+-- insert into user(id, firstname,lastname,age,mail, phone_number,hashed_password)

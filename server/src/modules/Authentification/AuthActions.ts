@@ -4,8 +4,6 @@ import argon2 from "argon2";
 
 import jwt from "jsonwebtoken";
 
-import type { JwtPayload } from "jsonwebtoken";
-
 // Import access to data
 import UserRepository from "../User/UserRepository";
 
@@ -21,7 +19,7 @@ const login: RequestHandler = async (req, res, next) => {
 
     const verified = await argon2.verify(
       user.hashed_password,
-      req.body.password,
+      req.body.hashed_password,
     );
 
     if (verified) {
@@ -72,7 +70,7 @@ const hashPassword: RequestHandler = async (req, res, next) => {
     req.body.hashed_password = hashedPassword;
 
     // Oubli du mot de passe non haché de la requête : il restera un secret même pour notre code dans les autres actions
-    req.body.password = undefined;
+    req.body.hashed_password = undefined;
 
     next();
   } catch (err) {

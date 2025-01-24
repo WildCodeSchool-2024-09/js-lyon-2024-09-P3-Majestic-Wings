@@ -46,6 +46,7 @@ const NavBar = () => {
     { id: 1, url: "/", name: "Accueil" },
     { id: 2, url: "/planes", name: "Avions" },
     { id: 3, url: "/login", name: "Se connecter" },
+    { id: 4, url: "/about", name: "A propos" },
   ];
 
   return (
