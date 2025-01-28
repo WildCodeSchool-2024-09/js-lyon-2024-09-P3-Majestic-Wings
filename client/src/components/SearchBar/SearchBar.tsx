@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import FlightButton from "../../../public/takeoff.png";
 import "./SearchBar.css";
+import { useContext } from "react";
+import AuthContext from "../../Context/AuthContext";
 
 interface AirportsProps {
   id: number;
@@ -9,6 +11,8 @@ interface AirportsProps {
 }
 
 const SearchBar = () => {
+  const { auth } = useContext(AuthContext);
+
   const [queries, setQuery] = useState<AirportsProps[]>([]);
   const [arrivalID, setarrivalID] = useState("");
   const [departureID, setDepartureID] = useState("");
@@ -48,15 +52,27 @@ const SearchBar = () => {
               </option>
             ))}
           </select>
-          <Link to="/login">
-            <button type="button" className="ValidationButton">
-              <img
-                src={FlightButton}
-                alt="validation button"
-                className="ValidationImage"
-              />
-            </button>
-          </Link>
+          {auth === undefined ? (
+            <Link to="/login">
+              <button type="button" className="ValidationButton">
+                <img
+                  src={FlightButton}
+                  alt="validation button"
+                  className="ValidationImage"
+                />
+              </button>
+            </Link>
+          ) : (
+            <Link to="/reservation">
+              <button type="button" className="ValidationButton">
+                <img
+                  src={FlightButton}
+                  alt="validation button"
+                  className="ValidationImage"
+                />
+              </button>
+            </Link>
+          )}
         </label>
       </div>
       <div className="FlightButton">

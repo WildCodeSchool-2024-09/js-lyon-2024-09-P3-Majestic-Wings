@@ -16,6 +16,7 @@ import Reservation from "./components/Reservation/Reservation";
 import AboutPage from "./pages/AboutPage";
 import WelcomePage from "./pages/WelcomePage";
 
+import { AuthProvider } from "./Context/AuthContext";
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
 
@@ -73,9 +74,11 @@ if (rootElement == null) {
 
 // Render the app inside the root element
 createRoot(rootElement).render(
-  <StrictMode>
-    <RouterProvider router={router} />
-  </StrictMode>,
+  <AuthProvider>
+    <StrictMode>
+      <RouterProvider router={router} />
+    </StrictMode>
+  </AuthProvider>,
 );
 
 /**

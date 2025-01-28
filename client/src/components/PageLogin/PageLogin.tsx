@@ -1,33 +1,21 @@
 import "./PageLogin.css";
-
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import type { FormEventHandler } from "react";
 import { Link } from "react-router-dom";
-import { useNavigate, useOutletContext } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import AuthContext from "../../Context/AuthContext";
 
 import { toast } from "react-toastify";
 
 import Password from "../../../public/lock.png";
 import UserFace from "../../../public/user.png";
 
-type User = {
-  id: number;
-  mail: string;
-};
-
-type Auth = {
-  user: User;
-  token: string;
-};
-
 const PageLogin = () => {
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
 
-  const { setAuth } = useOutletContext() as {
-    setAuth: (auth: Auth | null) => void;
-  };
+  const { setAuth } = useContext(AuthContext);
 
   const handleSubmit: FormEventHandler = async (event) => {
     event.preventDefault();
@@ -56,7 +44,7 @@ const PageLogin = () => {
 
         setAuth(user);
 
-        toast.info(`Bienvenue ${user.firstname} ${user.lastname}`);
+        toast.info("Bienvenue");
         navigate("/");
       } else {
         // Log des détails de la réponse en cas d'échec

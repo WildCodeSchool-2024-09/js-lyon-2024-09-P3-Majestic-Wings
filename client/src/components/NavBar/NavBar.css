@@ -99,6 +99,19 @@
   padding-bottom: 5px;
 }
 
+.ButtonList {
+  border: none;
+  color: var(--white-color);
+  font-size: 25px;
+  pointer-events: none;
+  text-decoration: none;
+  color: black;
+}
+
+.ButtonList:hover {
+  color: var(--secondary-color);
+}
+
 @media (min-width: 768px) {
   .sectionPlane {
     display: flex;
@@ -133,6 +146,9 @@ a {
   background-image: url("../../../public/logo-noir.png");
   background-repeat: no-repeat;
   background-size: cover;
+  display: flex;
+
+  justify-content: center;
 }
 .Logoscrolled {
   background-image: url("../../../public/logo-gris-clair.png");

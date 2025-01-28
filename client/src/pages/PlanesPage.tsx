@@ -1,19 +1,10 @@
 import { useEffect, useState } from "react";
-
-import { useNavigate, useOutletContext } from "react-router-dom";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Airport from "../../public/aeroport vide.jpg";
+import AuthContext from "../Context/AuthContext";
 import Planes from "../components/Planes/Planes";
-
-type User = {
-  id: number;
-  mail: string;
-};
-
-type Auth = {
-  user: User;
-  token: string;
-};
 
 type PlanesProps = {
   id: number;
@@ -25,14 +16,14 @@ type PlanesProps = {
 function PlanesPage() {
   const navigate = useNavigate();
 
-  const { auth } = useOutletContext() as { auth: Auth | null };
+  const { auth } = useContext(AuthContext);
   const [plane, setPlane] = useState<PlanesProps[]>([]);
   useEffect(() => {
     fetch(`${import.meta.env.VITE_API_URL}/api/planes`, {
       headers: {
         "Content-Type": "application/json",
         /* conditional rendering ensures auth is not null */
-        Authorization: `Bearer ${(auth as Auth)?.token}`, // Inclusion du jeton JWT
+        Authorization: `Bearer ${auth?.token}`, // Inclusion du jeton JWT
       },
     })
       .then((res) => {
