@@ -8,6 +8,7 @@ isocountry varchar(25) not null,
 isoregion varchar(25) not null,
 municipality varchar(50) not null
 );
+
 INSERT INTO airports (size, name, latitude, longitude, isocountry, isoregion, municipality) 
 values 
 ("large_airport","Helsinki Vantaa Airport",60.318363,24.963341,"Finland","FI-18","Helsinki"),
@@ -100,6 +101,7 @@ values
 ("medium_airport","Florence Airport, Peretola",43.808558,11.202822,"Italie","IT-52","Firenze (FI)"),
 ("medium_airport","Rome Urbe Airport",41.952096,12.502231,"Italie","IT-62","Rome");
 
+
 CREATE TABLE plane(
   id int unsigned primary key auto_increment not null,
   brand varchar(100) not null,
@@ -181,10 +183,6 @@ values
   ("RECLC", "Restauration", "CLC"),
   ("BTCLC", "Salle de Conference", "CLC"),
   ("BTCGC", "Salle de Jeux", "CGC");
-  
-
-
-
 
 CREATE TABLE user(
   id int primary key auto_increment not null,
@@ -192,7 +190,15 @@ CREATE TABLE user(
   lastname varchar(100) not null,
   age int not null,
   mail varchar(100) not null,
-  phone_number int not null,
-  password varchar(255) not null
+  phone_number varchar(50) not null,
+  hashed_password varchar(255) not null
 );
 
+CREATE TABLE reservation (
+  id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+  user_id INT NOT NULL,
+  plane_id INT unsigned NOT NULL,
+  reservation_date DATE NOT NULL,
+  CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES user(id),
+ CONSTRAINT fk_plane FOREIGN KEY (plane_id) REFERENCES plane(id)
+);

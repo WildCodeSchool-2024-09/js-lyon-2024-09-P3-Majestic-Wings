@@ -8,6 +8,8 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 // Import the main app component
 import App from "./App";
 import PageLogin from "./components/PageLogin/PageLogin";
+import Reservation from "./components/Reservation/Reservation";
+import AboutPage from "./pages/AboutPage";
 import CabinesPage from "./pages/CabinesPage";
 import PlaneDetailPage from "./pages/PlaneDetailPage";
 import PlanesPage from "./pages/PlanesPage";
@@ -41,6 +43,10 @@ const router = createBrowserRouter([
         element: <PlaneDetailPage />,
       },
       {
+        path: "/reservation",
+        element: <Reservation />,
+      },
+      {
         path: "/cabines",
         element: <CabinesPage />,
       },
@@ -51,6 +57,10 @@ const router = createBrowserRouter([
       {
         path: "/login/registration",
         element: <RegistrationPage />,
+      },
+      {
+        path: "/about",
+        element: <AboutPage />,
       },
     ],
   },

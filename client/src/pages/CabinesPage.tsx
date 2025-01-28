@@ -1,33 +1,29 @@
 import { useEffect, useState } from "react";
 
-import Prestations from "../components/Prestations/Prestations";
+import Cabines from "../components/Cabines/Cabines";
 
-interface PrestationsProps {
+interface CabinesProps {
+  code: string;
   libelle: string;
-  prestations_libelles: string;
   photo: string;
   plan: string;
 }
 
 function CabinesPage() {
-  const [prestations, setPrestations] = useState<PrestationsProps[]>([]);
-
+  const [cabines, setCabines] = useState<CabinesProps[]>([]);
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}/api/prestations`)
+    fetch(`${import.meta.env.VITE_API_URL}/api/cabines`)
       .then((res) => res.json())
       .then((inside) => {
-        setPrestations(inside);
+        setCabines(inside);
       });
   }, []);
 
   return (
     <>
       <section className="sectionService">
-        {prestations.map((prestation) => (
-          <Prestations
-            PrestationsData={prestation}
-            key={prestation.prestations_libelles}
-          />
+        {cabines.map((cabine) => (
+          <Cabines CabinesData={cabine} key={cabine.code} />
         ))}
       </section>
     </>
