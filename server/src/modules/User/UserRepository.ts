@@ -9,7 +9,7 @@ type User = {
   age: number;
   mail: string;
   phone_number: number;
-  hashed_password: string;
+  password: string;
 };
 
 class UserRepository {
@@ -23,7 +23,7 @@ class UserRepository {
         user.age,
         user.mail,
         user.phone_number,
-        user.hashed_password,
+        user.password,
       ],
     );
 

@@ -7,7 +7,7 @@ type RegistrationData = {
   age: number;
   mail: string;
   phone_number: string;
-  hashed_password: string;
+  password: string;
 };
 interface RegistrationFormData {
   defaultValue: RegistrationData;
@@ -29,14 +29,14 @@ function Registration({
         const age = formData.get("age") as unknown as number;
         const mail = formData.get("mail") as string;
         const phone_number = formData.get("phone_number") as string;
-        const hashed_password = formData.get("hashed_password") as string;
+        const password = formData.get("password") as string;
         onSubmit({
           firstname,
           lastname,
           age,
           mail,
           phone_number,
-          hashed_password,
+          password,
         });
       }}
       className="form-all"
@@ -102,9 +102,9 @@ function Registration({
             Mot de passe
             <input
               type="password"
-              name="hashed_password"
+              name="password"
               required
-              defaultValue={defaultValue.hashed_password}
+              defaultValue={defaultValue.password}
             />
           </label>
         </div>

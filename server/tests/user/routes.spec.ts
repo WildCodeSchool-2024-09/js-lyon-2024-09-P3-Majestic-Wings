@@ -34,7 +34,7 @@ describe("POST /api/user", () => {
       age: 21,
       mail: "nadir.haddouche@hotmail.com",
       phone_number: "0625336042",
-      hashed_password: "miniardisedu69",
+      password: "miniardisedu69",
     };
 
     // Send a POST request to the /api/user endpoint with a test user

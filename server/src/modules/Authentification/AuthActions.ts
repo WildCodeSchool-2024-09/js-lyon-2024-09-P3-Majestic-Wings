@@ -17,14 +17,11 @@ const login: RequestHandler = async (req, res, next) => {
       return;
     }
 
-    const verified = await argon2.verify(
-      user.hashed_password,
-      req.body.hashed_password,
-    );
+    const verified = await argon2.verify(user.password, req.body.password);
 
     if (verified) {
       // Respond with the user and a signed token in JSON format (but without the hashed password)
-      const { hashed_password, ...userWithoutHashedPassword } = user;
+      const { password, ...userWithoutHashedPassword } = user;
 
       const myPayload: MyPayload = {
         sub: user.id.toString(),
@@ -70,7 +67,7 @@ const hashPassword: RequestHandler = async (req, res, next) => {
     req.body.hashed_password = hashedPassword;
 
     // Oubli du mot de passe non haché de la requête : il restera un secret même pour notre code dans les autres actions
-    req.body.hashed_password = undefined;
+    req.body.password = undefined;
 
     next();
   } catch (err) {

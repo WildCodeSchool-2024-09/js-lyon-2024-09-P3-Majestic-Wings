@@ -13,7 +13,7 @@ function RegistrationPage() {
     age: 0,
     mail: "",
     phone_number: "",
-    hashed_password: "",
+    password: "",
   };
 
   return (
