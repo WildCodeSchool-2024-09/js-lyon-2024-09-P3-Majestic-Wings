@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Airport from "../../public/aeroport vide.jpg";
@@ -11,6 +12,11 @@ type PlanesProps = {
   brand: string;
   model: string;
   image: string;
+  capacity: number;
+  autonomy: number;
+  speed: number;
+  luggages: number;
+  airport_id: number;
 };
 
 function PlanesPage() {
@@ -46,7 +52,9 @@ function PlanesPage() {
       {plane.length > 0 ? (
         <section className="sectionPlane">
           {plane.map((display) => (
-            <Planes PlanesData={display} key={display.id} />
+            <Link to={`/planes/${display.id}`} key={display.id}>
+              <Planes PlanesData={display} />
+            </Link>
           ))}
         </section>
       ) : (

@@ -8,12 +8,12 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 // Import the main app component
 import App from "./App";
 import PageLogin from "./components/PageLogin/PageLogin";
-import CabinesPage from "./pages/CabinesPage";
-import PlanesPage from "./pages/PlanesPage";
-import RegistrationPage from "./pages/RegistrationPage";
-
 import Reservation from "./components/Reservation/Reservation";
 import AboutPage from "./pages/AboutPage";
+import CabinesPage from "./pages/CabinesPage";
+import PlaneDetailPage from "./pages/PlaneDetailPage";
+import PlanesPage from "./pages/PlanesPage";
+import RegistrationPage from "./pages/RegistrationPage";
 import WelcomePage from "./pages/WelcomePage";
 
 import { AuthProvider } from "./Context/AuthContext";
@@ -38,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "/planes",
         element: <PlanesPage />,
+      },
+      {
+        path: "/planes/:id",
+        element: <PlaneDetailPage />,
       },
       {
         path: "/reservation",
