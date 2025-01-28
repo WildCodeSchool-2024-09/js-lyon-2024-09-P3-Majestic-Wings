@@ -33,7 +33,7 @@ const Reservation = () => {
   return (
     <div className="reservationwrap">
       <h1>Réservation de jet</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="reservationForm">
         <label>
           Jet :
           <select

@@ -43,7 +43,7 @@ const PageLogin = () => {
             mail:
               /* rendering process ensures the ref is defined before the form is submitted */
               (emailRef.current as HTMLInputElement).value,
-            hashed_password:
+            password:
               /* rendering process ensures the ref is defined before the form is submitted */
               (passwordRef.current as HTMLInputElement).value,
           }),

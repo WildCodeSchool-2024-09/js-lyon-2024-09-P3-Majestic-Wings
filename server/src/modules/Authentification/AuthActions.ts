@@ -17,11 +17,14 @@ const login: RequestHandler = async (req, res, next) => {
       return;
     }
 
-    const verified = await argon2.verify(user.password, req.body.password);
+    const verified = await argon2.verify(
+      user.hashed_password,
+      req.body.password,
+    );
 
     if (verified) {
       // Respond with the user and a signed token in JSON format (but without the hashed password)
-      const { password, ...userWithoutHashedPassword } = user;
+      const { hashed_password, ...userWithoutHashedPassword } = user;
 
       const myPayload: MyPayload = {
         sub: user.id.toString(),
