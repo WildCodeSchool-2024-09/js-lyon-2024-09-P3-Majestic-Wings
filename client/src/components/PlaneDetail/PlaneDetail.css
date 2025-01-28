@@ -1,0 +1,95 @@
+.plane-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 70px;
+  gap: 15px;
+}
+
+.plane-photos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.plane-photos img {
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+.plane-caract {
+  border: solid 2px var(--Button);
+  border-radius: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  line-height: 1.4rem;
+}
+.plane-caract ul li {
+  font-size: 1rem;
+  list-style: none;
+}
+h1 {
+  font-size: 1.5rem;
+}
+
+@media (min-width: 375px) {
+  .plane-photos img {
+    width: 350px;
+  }
+}
+
+@media (min-width: 425px) {
+  .plane-photos img {
+    width: 400px;
+  }
+}
+@media (min-width: 475px) {
+  .plane-photos img {
+    width: 450px;
+  }
+  .plane-caract {
+    padding: 10px;
+  }
+}
+@media (min-width: 530px) {
+  .plane-photos img {
+    width: 500px;
+  }
+}
+
+@media (min-width: 600px) {
+  .plane-photos img {
+    width: 550px;
+  }
+}
+
+@media (min-width: 768px) {
+  .plane-photos img {
+    width: 550px;
+  }
+  h1 {
+    font-size: 2.5rem;
+  }
+  .plane-caract ul li {
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .plane-photos img {
+    width: 650px;
+  }
+  .plane-caract ul li {
+    font-size: 1.3rem;
+  }
+}
+@media (min-width: 1440px) {
+  .plane-photos img {
+    width: 700px;
+  }
+  .plane-caract ul li {
+    font-size: 1.5rem;
+  }
+}
