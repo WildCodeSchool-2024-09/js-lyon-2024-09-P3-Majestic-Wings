@@ -18,6 +18,7 @@ import AuthActions from "./modules/Authentification/AuthActions";
 
 import AirportsAction from "./modules/Airports/AirportsAction";
 router.get("/api/airports", AirportsAction.browse);
+router.get("/api/airport", AirportsAction.display);
 
 import PlanesAction from "./modules/Planes/PlanesAction";
 
