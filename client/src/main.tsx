@@ -8,14 +8,16 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 // Import the main app component
 import App from "./App";
 import PageLogin from "./components/PageLogin/PageLogin";
-import CabinesPage from "./pages/CabinesPage";
-import PlanesPage from "./pages/PlanesPage";
-import RegistrationPage from "./pages/RegistrationPage";
-
 import Reservation from "./components/Reservation/Reservation";
 import AboutPage from "./pages/AboutPage";
+import AirportMapPage from "./pages/AirportMapPage";
+import CabinesPage from "./pages/CabinesPage";
+import PlaneDetailPage from "./pages/PlaneDetailPage";
+import PlanesPage from "./pages/PlanesPage";
+import RegistrationPage from "./pages/RegistrationPage";
 import WelcomePage from "./pages/WelcomePage";
 
+import { AuthProvider } from "./Context/AuthContext";
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
 
@@ -39,12 +41,20 @@ const router = createBrowserRouter([
         element: <PlanesPage />,
       },
       {
+        path: "/planes/:id",
+        element: <PlaneDetailPage />,
+      },
+      {
         path: "/reservation",
         element: <Reservation />,
       },
       {
         path: "/cabines",
         element: <CabinesPage />,
+      },
+      {
+        path: "/AirportMap",
+        element: <AirportMapPage />,
       },
       {
         path: "/login",
@@ -73,9 +83,11 @@ if (rootElement == null) {
 
 // Render the app inside the root element
 createRoot(rootElement).render(
-  <StrictMode>
-    <RouterProvider router={router} />
-  </StrictMode>,
+  <AuthProvider>
+    <StrictMode>
+      <RouterProvider router={router} />
+    </StrictMode>
+  </AuthProvider>,
 );
 
 /**

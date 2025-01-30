@@ -2,12 +2,27 @@ import express from "express";
 
 const router = express.Router();
 
+/* ************************************************************************* */
+// Define Your API Routes Here
+/* ************************************************************************* */
+
+// Define item-related routes
+// import itemActions from "./modules/item/itemActions";
+
+// router.get("/api/items", itemActions.browse);
+
+// router.post("/api/items", itemActions.add);
+
+/* ************************************************************************* */
 import AuthActions from "./modules/Authentification/AuthActions";
 
 import AirportsAction from "./modules/Airports/AirportsAction";
 router.get("/api/airports", AirportsAction.browse);
+router.get("/api/airport", AirportsAction.display);
 
 import PlanesAction from "./modules/Planes/PlanesAction";
+
+router.get("/api/planes/:id", PlanesAction.read);
 router.get("/api/planes", AuthActions.verifyToken, PlanesAction.browse);
 
 import CabinesActions from "./modules/Cabines/CabinesActions";
