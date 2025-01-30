@@ -1,11 +1,16 @@
 import { useEffect, useState } from "react";
 import "./NavBar.css";
 import { Link } from "react-router-dom";
-import userInterfaceIcon from "../../../public/avatar-noir.png";
+
+import { useContext } from "react";
+import { toast } from "react-toastify";
 import CloseMenu from "../../../public/close.png";
 import OpenMenu from "../../../public/menu-bar.png";
+import AuthContext from "../../Context/AuthContext";
 
 const NavBar = () => {
+  const { auth, setAuth } = useContext(AuthContext);
+
   const [scrollPos, setScrollPos] = useState(0);
 
   useEffect(() => {
@@ -33,8 +38,7 @@ const NavBar = () => {
   const navigation = [
     { id: 1, url: "/", name: "Accueil" },
     { id: 2, url: "/planes", name: "Avions" },
-    { id: 3, url: "/login", name: "Se connecter" },
-    { id: 4, url: "/backoffice/action", name: "Contact" },
+    { id: 3, url: "/about", name: "A propos" },
   ];
 
   return (
@@ -47,7 +51,6 @@ const NavBar = () => {
             alt=""
           />
         </button>
-
         <div
           className={`opened_menu_container ${
             isOpenMenu === true ? "right_to_left display_flex" : "display_none"
@@ -65,20 +68,35 @@ const NavBar = () => {
                 </Link>
               </li>
             ))}
+            {auth !== undefined ? (
+              <li className="list_element_burger">
+                <Link
+                  className="mobile_link"
+                  to="/"
+                  onClick={() => {
+                    setAuth(undefined);
+                    toast.info("Vous êtes déconnecté");
+                  }}
+                >
+                  Se déconnecter
+                </Link>
+              </li>
+            ) : (
+              <li className="list_element_burger">
+                <Link to="/login" className="mobile_link">
+                  Se connecter
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
         <div className={window.scrollY === 0 ? "LogoTop" : "Logoscrolled"}>
           <img src="" alt="" className="logo" />
         </div>
-        <Link to="/login">
-          <div className="loginButton">
-            <img
-              src={userInterfaceIcon}
-              alt="Login button"
-              className="loginface"
-            />
-          </div>
-        </Link>
+        {/* Code mort pour créer un espace sur la navbar */}
+        <div className="loginButton">
+          <img src="" alt="" className="loginface" />
+        </div>
       </nav>
     </>
   );
