@@ -25,6 +25,7 @@ const Reservation = () => {
     const departureAirport = queryParams.get("departureAirport") || "";
     const arrivalAirport = queryParams.get("arrivalAirport") || "";
 
+    // Mise à jour automatique des aéroports grâce à l'URL
     setFormData((prevData) => ({
       ...prevData,
       departureAirport,
@@ -46,7 +47,8 @@ const Reservation = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Envoyer les données au backend
+
+    // TODO: Envoyer les données au backend si nécessaire
   };
 
   return (
@@ -62,9 +64,8 @@ const Reservation = () => {
             required
           >
             <option value="">Selectionner un jet</option>
-            <option value="lightJet">Petit</option>
-            <option value="midsizeJet">Moyen</option>
-            <option value="maxsizeJet">Grand</option>
+            <option value="lightJet">Prestations</option>
+            <option value="midsizeJet">Nombres de passagers</option>
           </select>
         </label>
 

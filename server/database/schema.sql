@@ -199,5 +199,5 @@ CREATE TABLE reservation (
   plane_id INT unsigned NOT NULL,
   reservation_date DATE NOT NULL,
   CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES user(id),
- CONSTRAINT fk_plane FOREIGN KEY (plane_id) REFERENCES plane(id)
+  CONSTRAINT fk_plane FOREIGN KEY (plane_id) REFERENCES plane(id)
 );
