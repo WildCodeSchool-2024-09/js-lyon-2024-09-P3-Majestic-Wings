@@ -33,14 +33,13 @@ function RegistrationPage() {
             },
           );
           if (response.status === 201) {
-            toast.info(
+            toast.success(
               `Compte créé ${registrationData.firstname} ${registrationData.lastname}`,
             );
 
             navigate("/login");
           } else {
-            // Log des détails de la réponse en cas d'échec
-            console.info(response);
+            toast.error("Il semblerait qu'il y ait eu une erreur ! ");
           }
         } catch (err) {
           // Log des erreurs possibles

@@ -14,7 +14,6 @@ export default function WelcomePage() {
       <Our_Planes />
       <Our_Prestations />
       <AirportMapPage />
-
       <Button_Discover />
     </>
   );
