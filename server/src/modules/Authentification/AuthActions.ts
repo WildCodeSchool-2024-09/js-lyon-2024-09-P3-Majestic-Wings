@@ -27,6 +27,8 @@ const login: RequestHandler = async (req, res, next) => {
       const { hashed_password, ...userWithoutHashedPassword } = user;
 
       const myPayload: MyPayload = {
+        mail: user.mail,
+        id: user.id,
         sub: user.id.toString(),
       };
       const token = await jwt.sign(
@@ -92,7 +94,10 @@ const verifyToken: RequestHandler = (req, res, next) => {
     }
     // Vérifier la validité du token (son authenticité et sa date d'expériation)
     // En cas de succès, le payload est extrait et décodé
-    req.auth = jwt.verify(token, process.env.APP_SECRET as string) as MyPayload;
+    req.body.auth = jwt.verify(
+      token,
+      process.env.APP_SECRET as string,
+    ) as MyPayload;
     next();
   } catch (err) {
     console.error(err);
