@@ -10,6 +10,7 @@ import App from "./App";
 import PageLogin from "./components/PageLogin/PageLogin";
 import Reservation from "./components/Reservation/Reservation";
 import AboutPage from "./pages/AboutPage";
+import AirportMapPage from "./pages/AirportMapPage";
 import CabinesPage from "./pages/CabinesPage";
 import PlaneDetailPage from "./pages/PlaneDetailPage";
 import PlanesPage from "./pages/PlanesPage";
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
       {
         path: "/cabines",
         element: <CabinesPage />,
+      },
+      {
+        path: "/AirportMap",
+        element: <AirportMapPage />,
       },
       {
         path: "/login",
