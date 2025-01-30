@@ -1,0 +1,90 @@
+.SearchBar {
+  font-weight: 300;
+  font-size: 18px;
+  width: 250px;
+  border: solid 2px var(--Button);
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 5px;
+  padding: 15px 32px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.LabelSearchBar {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgba(217, 217, 217, 0.75);
+  padding: 15px;
+  margin-bottom: 20px;
+}
+.ValidationButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid 2px var(--Button);
+  border-radius: 10px;
+  margin: 5px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 250px;
+}
+.ValidationButton:hover {
+  background-color: #7c631d;
+}
+.ValidationImage {
+  width: 45px;
+}
+.SearchFull {
+  display: flex;
+  justify-content: center;
+}
+
+.SearchTitle {
+  margin-top: 40px;
+  font-size: 30px;
+}
+.FlightButton {
+  display: flex;
+  justify-content: center;
+}
+.FlyButton {
+  font-size: 13px;
+  border: solid 2px var(--Button);
+  border-radius: 50px;
+  cursor: pointer;
+  margin: 5px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  padding: 15px 40px;
+}
+.FlyButton:hover {
+  background-color: #7c631d;
+}
+@media (min-width: 768px) {
+  .LabelSearchBar {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 15px;
+  }
+  .FlyButton {
+    font-size: 18px;
+  }
+  .ValidationButton {
+    width: 65px;
+    height: 56px;
+  }
+}
+@media (min-width: 425px) and (max-width: 500px) {
+  .FlyButton {
+    font-size: 14px;
+  }
+}
+@media (min-width: 501px) and (max-width: 767px) {
+  .FlyButton {
+    font-size: 16px;
+  }
+}
