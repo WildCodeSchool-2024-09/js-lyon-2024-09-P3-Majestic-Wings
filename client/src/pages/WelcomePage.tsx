@@ -12,6 +12,7 @@ export default function WelcomePage() {
       <SearchBar />
       <Our_Planes />
       <Our_Prestations />
+
       <Button_Discover />
     </>
   );

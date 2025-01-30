@@ -35,6 +35,7 @@ import UserActions from "./modules/User/UserActions";
 router.post("/api/login", AuthActions.login);
 // router.get("/api/user", UserActions.browse);
 // router.get("/api/user/:id", UserActions.read)
+router.put("/api/profile", AuthActions.verifyToken, UserActions.edit);
 router.post("/api/user", AuthActions.hashPassword, UserActions.add);
 router.use(AuthActions.verifyToken);
 

@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 import { useContext } from "react";
 import { toast } from "react-toastify";
+import OpenMenu from "../../../public/barre-blanc.png";
 import CloseMenu from "../../../public/close.png";
-import OpenMenu from "../../../public/menu-bar.png";
 import AuthContext from "../../Context/AuthContext";
 
 const NavBar = () => {
@@ -93,10 +93,20 @@ const NavBar = () => {
         <div className={window.scrollY === 0 ? "LogoTop" : "Logoscrolled"}>
           <img src="" alt="" className="logo" />
         </div>
-        {/* Code mort pour créer un espace sur la navbar */}
-        <div className="loginButton">
-          <img src="" alt="" className="loginface" />
-        </div>
+
+        {auth === undefined ? (
+          <div className="loginButton">
+            <img src="" alt="" className="loginface" />
+          </div>
+        ) : (
+          <div
+            className={window.scrollY === 0 ? "ProfileTop" : "ProfileScrolled"}
+          >
+            <Link to={"/profile/edit-account"}>
+              <img src="" alt="" className="loginface" />
+            </Link>
+          </div>
+        )}
       </nav>
     </>
   );

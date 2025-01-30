@@ -8,6 +8,7 @@ function RegistrationPage() {
   const navigate = useNavigate();
 
   const newRegistration = {
+    id: 0,
     firstname: "",
     lastname: "",
     age: 0,
@@ -35,7 +36,6 @@ function RegistrationPage() {
             toast.info(
               `Compte créé ${registrationData.firstname} ${registrationData.lastname}`,
             );
-            // console.log(registrationData);
 
             navigate("/login");
           } else {
