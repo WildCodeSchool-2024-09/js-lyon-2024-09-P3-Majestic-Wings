@@ -1,25 +1,21 @@
-import "./Registration.css";
+import "./Profile.css";
 
 import type { ReactNode } from "react";
-type RegistrationData = {
+
+type ProfileData = {
   id: number;
   firstname: string;
   lastname: string;
   age: number;
-  mail: string;
   phone_number: string;
-  password: string;
 };
-interface RegistrationFormData {
-  defaultValue: RegistrationData;
+interface ProfileFormData {
+  defaultValue: ProfileData;
   children: ReactNode;
-  onSubmit: (user: RegistrationData) => void;
+  onSubmit: (user: ProfileData) => void;
 }
-function Registration({
-  defaultValue,
-  children,
-  onSubmit,
-}: RegistrationFormData) {
+
+function Profile({ defaultValue, children, onSubmit }: ProfileFormData) {
   return (
     <form
       onSubmit={(event) => {
@@ -29,23 +25,20 @@ function Registration({
         const firstname = formData.get("firstname") as string;
         const lastname = formData.get("lastname") as string;
         const age = formData.get("age") as unknown as number;
-        const mail = formData.get("mail") as string;
         const phone_number = formData.get("phone_number") as string;
-        const password = formData.get("password") as string;
+
         onSubmit({
           id,
           firstname,
           lastname,
           age,
-          mail,
           phone_number,
-          password,
         });
       }}
       className="form-all"
       action=""
     >
-      <h1 className="title">Inscription</h1>
+      <h1 className="title">Modifier vos informations</h1>
       <div className="form-container">
         <div className="input-column">
           <label>
@@ -67,7 +60,18 @@ function Registration({
               defaultValue={defaultValue.lastname}
             />
           </label>
+        </div>
 
+        <div className="input-column">
+          <label>
+            Téléphone
+            <input
+              type="tel"
+              name="phone_number"
+              required
+              defaultValue={defaultValue.phone_number}
+            />
+          </label>
           <label>
             Âge
             <input
@@ -79,38 +83,6 @@ function Registration({
             />
           </label>
         </div>
-
-        <div className="input-column">
-          <label>
-            Email
-            <input
-              type="email"
-              name="mail"
-              required
-              defaultValue={defaultValue.mail}
-            />
-          </label>
-
-          <label>
-            Téléphone
-            <input
-              type="tel"
-              name="phone_number"
-              required
-              defaultValue={defaultValue.phone_number}
-            />
-          </label>
-
-          <label>
-            Mot de passe
-            <input
-              type="password"
-              name="password"
-              required
-              defaultValue={defaultValue.password}
-            />
-          </label>
-        </div>
       </div>
 
       <button type="submit" className="explore-button">
@@ -119,4 +91,4 @@ function Registration({
     </form>
   );
 }
-export default Registration;
+export default Profile;

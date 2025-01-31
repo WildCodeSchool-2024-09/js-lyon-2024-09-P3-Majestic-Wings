@@ -1,6 +1,6 @@
 .reservationwrap {
   max-width: 800px;
-  margin: 0 auto; /* Centrer le .reservationFormulaire */
+  margin: 0 auto;
   padding: 20px;
   background-color: #f9f9f9; /* Fond clair */
   border-radius: 10px;
