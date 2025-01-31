@@ -14,6 +14,7 @@ import AirportMapPage from "./pages/AirportMapPage";
 import CabinesPage from "./pages/CabinesPage";
 import PlaneDetailPage from "./pages/PlaneDetailPage";
 import PlanesPage from "./pages/PlanesPage";
+import ProfilePage from "./pages/ProfilePage";
 import RegistrationPage from "./pages/RegistrationPage";
 import WelcomePage from "./pages/WelcomePage";
 
@@ -67,6 +68,10 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <AboutPage />,
+      },
+      {
+        path: "/profile/edit-account",
+        element: <ProfilePage />,
       },
     ],
   },

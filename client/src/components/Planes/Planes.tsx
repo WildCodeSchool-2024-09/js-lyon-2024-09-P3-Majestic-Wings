@@ -1,4 +1,5 @@
 import "./Planes.css";
+import { Link } from "react-router-dom";
 
 interface PlanesProps {
   PlanesData: {
@@ -13,7 +14,13 @@ function Planes({ PlanesData }: PlanesProps) {
   return (
     <>
       <div className="divPlane">
-        <img className="plane" src={PlanesData.image} alt={PlanesData.brand} />
+        <Link to={`/planes/${PlanesData.id}`}>
+          <img
+            className="plane"
+            src={PlanesData.image}
+            alt={PlanesData.brand}
+          />
+        </Link>
         <h3>
           {PlanesData.brand} {PlanesData.model}
         </h3>

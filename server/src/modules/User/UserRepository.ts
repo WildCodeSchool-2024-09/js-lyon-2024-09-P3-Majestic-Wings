@@ -59,5 +59,15 @@ class UserRepository {
 
     return rows[0] as User;
   }
+  async update(user: User) {
+    // Execute the SQL UPDATE query to update an existing category in the "category" table
+    const [result] = await databaseClient.query<Result>(
+      "update user set firstname = ?, lastname = ?, age = ?, phone_number = ? where id = ?",
+      [user.firstname, user.lastname, user.age, user.phone_number, user.id],
+    );
+
+    // Return how many rows were affected
+    return result.affectedRows;
+  }
 }
 export default new UserRepository();

@@ -59,5 +59,32 @@ const read: RequestHandler = async (req, res, next) => {
     next(err);
   }
 };
+const edit: RequestHandler = async (req, res, next) => {
+  try {
+    // Update a specific category based on the provided ID
+    const profileEdit = {
+      id: req.body.auth.id,
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
+      age: req.body.age,
+      mail: req.body.mail,
+      phone_number: req.body.phone_number,
+      hashed_password: req.body.hashed_password,
+    };
 
-export default { browse, add, read };
+    const affectedRows = await UserRepository.update(profileEdit);
+
+    // If the category is not found, respond with HTTP 404 (Not Found)
+    // Otherwise, respond with the category in JSON format
+    if (affectedRows === 0) {
+      res.sendStatus(404);
+    } else {
+      res.sendStatus(204);
+    }
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
+export default { browse, add, edit, read };
