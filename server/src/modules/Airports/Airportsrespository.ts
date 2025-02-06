@@ -20,7 +20,7 @@ class AirportsRepository {
   async readAll() {
     // Execute the SQL SELECT query to retrieve all items from the "item" table
     const [rows] = await databaseClient.query<Rows>(
-      "select distinct isocountry from airports order by isocountry ASC",
+      "select distinct isocountry, name from airports order by isocountry ASC",
     );
 
     // Return the array of items
