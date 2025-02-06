@@ -12,9 +12,12 @@ import Reservation from "./components/Reservation/Reservation";
 import AboutPage from "./pages/AboutPage";
 import AirportMapPage from "./pages/AirportMapPage";
 import CabinesPage from "./pages/CabinesPage";
+import CgvPage from "./pages/CgvPage";
 import PlaneDetailPage from "./pages/PlaneDetailPage";
 import PlanesPage from "./pages/PlanesPage";
+import ProfilePage from "./pages/ProfilePage";
 import RegistrationPage from "./pages/RegistrationPage";
+
 import WelcomePage from "./pages/WelcomePage";
 
 import { AuthProvider } from "./Context/AuthContext";
@@ -65,8 +68,17 @@ const router = createBrowserRouter([
         element: <RegistrationPage />,
       },
       {
+        path: "/cgv",
+        element: <CgvPage />,
+      },
+
+      {
         path: "/about",
         element: <AboutPage />,
+      },
+      {
+        path: "/profile/edit-account",
+        element: <ProfilePage />,
       },
     ],
   },

@@ -23,6 +23,7 @@ router.get("/api/airport", AirportsAction.display);
 import PlanesAction from "./modules/Planes/PlanesAction";
 
 router.get("/api/planes/:id", PlanesAction.read);
+router.get("/api/get-planes-resa", PlanesAction.browse); // nouvelle fonction ici
 router.get("/api/planes", AuthActions.verifyToken, PlanesAction.browse);
 
 import CabinesActions from "./modules/Cabines/CabinesActions";
@@ -32,11 +33,18 @@ import PrestationsAction from "./modules/Prestations/PrestationsAction";
 router.get("/api/prestations", PrestationsAction.browse);
 
 import UserActions from "./modules/User/UserActions";
-
 router.post("/api/login", AuthActions.login);
-// router.get("/api/user", UserActions.browse);
-// router.get("/api/user/:id", UserActions.read)
+router.put("/api/profile", AuthActions.verifyToken, UserActions.edit);
 router.post("/api/user", AuthActions.hashPassword, UserActions.add);
-router.use(AuthActions.verifyToken);
+// router.use(AuthActions.verifyToken);
+
+import ReservationAction from "./modules/Reservation/ReservationAction";
+
+router.post(
+  "/api/reservation",
+  AuthActions.verifyToken,
+  ReservationAction.getAirportId,
+  ReservationAction.add,
+);
 
 export default router;

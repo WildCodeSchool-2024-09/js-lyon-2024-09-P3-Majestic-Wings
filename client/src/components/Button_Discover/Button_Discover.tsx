@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./Button_discover.css";
+import "./Button_Discover.css";
 import CreatePdf from "../../pages/FlightDetailsPDFPage";
 
 function Button_Discover() {
