@@ -1,6 +1,7 @@
 import type React from "react";
 import { useState } from "react";
 import "./Reservation.css";
+import CreatePdf from "../../pages/FlightDetailsPDFPage";
 
 const Reservation = () => {
   const [formData, setFormData] = useState({
@@ -28,6 +29,10 @@ const Reservation = () => {
     e.preventDefault();
 
     // TODO: Add logic to send data to the backend or API
+  };
+
+  const GeneratePDF = () => {
+    CreatePdf();
   };
 
   return (
@@ -92,6 +97,9 @@ const Reservation = () => {
         </label>
 
         <button type="submit">Soumettre la réservation</button>
+        <button onClick={GeneratePDF} type="button" className="explore-button">
+          Generer la Resservation sous Forme PDF
+        </button>
       </form>
     </div>
   );

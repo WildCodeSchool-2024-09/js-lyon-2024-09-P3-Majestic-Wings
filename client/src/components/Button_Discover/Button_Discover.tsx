@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom";
 import "./Button_discover.css";
+import CreatePdf from "../../pages/FlightDetailsPDFPage";
+
 function Button_Discover() {
+  const GeneratePDF = () => {
+    CreatePdf();
+  };
+
   return (
     <>
       <div className="button_discover">
@@ -12,6 +18,12 @@ function Button_Discover() {
             Découvrir nos offres
           </button>
         </Link>
+      </div>
+      <div className="button_pdf">
+        <h2 className="button_pdf">Lancer le pdf</h2>
+        <button onClick={GeneratePDF} type="button" className="explore-button">
+          Generer la Reservation sous Forme PDF
+        </button>
       </div>
     </>
   );
