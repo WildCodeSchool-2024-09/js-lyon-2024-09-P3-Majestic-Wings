@@ -1,22 +1,15 @@
 import { useEffect, useState } from "react";
 import "./NavBar.css";
 import { Link } from "react-router-dom";
-import userInterfaceIcon from "../../../public/avatar-noir.png";
+
+import { useContext } from "react";
+import { toast } from "react-toastify";
+import OpenMenu from "../../../public/barre-blanc.png";
 import CloseMenu from "../../../public/close.png";
-import OpenMenu from "../../../public/menu-bar.png";
-
-type User = {
-  id: number;
-  mail: string;
-};
-
-type Auth = {
-  user: User;
-  token: string;
-};
+import AuthContext from "../../Context/AuthContext";
 
 const NavBar = () => {
-  const [auth, setAuth] = useState(null as Auth | null);
+  const { auth, setAuth } = useContext(AuthContext);
 
   const [scrollPos, setScrollPos] = useState(0);
 
@@ -45,8 +38,7 @@ const NavBar = () => {
   const navigation = [
     { id: 1, url: "/", name: "Accueil" },
     { id: 2, url: "/planes", name: "Avions" },
-    { id: 3, url: "/login", name: "Se connecter" },
-    { id: 4, url: "/about", name: "A propos" },
+    { id: 3, url: "/about", name: "A propos" },
   ];
 
   return (
@@ -59,7 +51,6 @@ const NavBar = () => {
             alt=""
           />
         </button>
-
         <div
           className={`opened_menu_container ${
             isOpenMenu === true ? "right_to_left display_flex" : "display_none"
@@ -77,16 +68,24 @@ const NavBar = () => {
                 </Link>
               </li>
             ))}
-            {auth !== null && (
-              <li>
-                <button
-                  type="button"
+            {auth !== undefined ? (
+              <li className="list_element_burger">
+                <Link
+                  className="mobile_link"
+                  to="/"
                   onClick={() => {
-                    setAuth(null);
+                    setAuth(undefined);
+                    toast.info("Vous êtes déconnecté");
                   }}
                 >
-                  Logout
-                </button>
+                  Se déconnecter
+                </Link>
+              </li>
+            ) : (
+              <li className="list_element_burger">
+                <Link to="/login" className="mobile_link">
+                  Se connecter
+                </Link>
               </li>
             )}
           </ul>
@@ -94,15 +93,20 @@ const NavBar = () => {
         <div className={window.scrollY === 0 ? "LogoTop" : "Logoscrolled"}>
           <img src="" alt="" className="logo" />
         </div>
-        <Link to="/login">
+
+        {auth === undefined ? (
           <div className="loginButton">
-            <img
-              src={userInterfaceIcon}
-              alt="Login button"
-              className="loginface"
-            />
+            <img src="" alt="" className="loginface" />
           </div>
-        </Link>
+        ) : (
+          <div
+            className={window.scrollY === 0 ? "ProfileTop" : "ProfileScrolled"}
+          >
+            <Link to={"/profile/edit-account"}>
+              <img src="" alt="" className="loginface" />
+            </Link>
+          </div>
+        )}
       </nav>
     </>
   );

@@ -67,6 +67,29 @@
   animation: slide_right_to_left 0.4s ease;
   z-index: 1;
 }
+.ProfileTop {
+  background-image: url("../../../public/utilisateur-noir.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  border-radius: 150px;
+}
+.ProfileScrolled {
+  background-image: url("../../../public/utilisateur-blanc.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+  transition-behavior: normal;
+  transition-duration: 1s;
+  transition-delay: 0s;
+  transition-timing-function: ease-in;
+  border-radius: 150px;
+}
+.loginface {
+  width: 25px;
+  padding-right: 20px;
+}
 
 @keyframes slide_right_to_left {
   from {
@@ -99,6 +122,19 @@
   padding-bottom: 5px;
 }
 
+.ButtonList {
+  border: none;
+  color: var(--white-color);
+  font-size: 25px;
+  pointer-events: none;
+  text-decoration: none;
+  color: black;
+}
+
+.ButtonList:hover {
+  color: var(--secondary-color);
+}
+
 @media (min-width: 768px) {
   .sectionPlane {
     display: flex;
@@ -121,10 +157,13 @@ a {
   display: flex;
   align-items: center;
 }
-
+.loginButton {
+  display: flex;
+  align-items: center;
+}
 .loginButton img {
-  width: 35px;
-  border-radius: 150px;
+  width: 30px;
+  margin-right: 5px;
 }
 .logo {
   width: 260px;
@@ -133,6 +172,9 @@ a {
   background-image: url("../../../public/logo-noir.png");
   background-repeat: no-repeat;
   background-size: cover;
+  display: flex;
+
+  justify-content: center;
 }
 .Logoscrolled {
   background-image: url("../../../public/logo-gris-clair.png");
@@ -145,8 +187,8 @@ a {
   transition-timing-function: ease-in;
 }
 
-@media (max-width: 350px) {
-  .loginButton img {
+@media (max-width: 360px) {
+  .loginface {
     display: none;
   }
 }
