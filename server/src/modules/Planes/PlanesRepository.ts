@@ -8,10 +8,12 @@ type Planes = {
   model: string;
   image: string;
   capacity: number;
+  size: string;
   autonomy: number;
   speed: number;
   luggages: number;
   airport_id: number;
+  airportId: string;
 };
 
 class PlanesRepository {
@@ -22,6 +24,17 @@ class PlanesRepository {
     // Return the array of items
     return rows as Planes[];
   }
+  async getModel(size: string) {
+    // Execute the SQL SELECT query to retrieve all items from the "item" table
+    const [rows] = await databaseClient.query<Rows>(
+      "select brand, model from plane where size = ? order by brand ASC",
+      [size],
+    );
+
+    // Return the array of items
+    return rows as [{ brand: string; model: string }];
+  }
+
   async read(id: number) {
     // Execute the SQL SELECT query to retrieve a specific item by its ID
 
