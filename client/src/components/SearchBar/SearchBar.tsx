@@ -6,6 +6,7 @@ import "./SearchBar.css";
 interface AirportsProps {
   id: number;
   isocountry: string;
+  name: string;
 }
 
 const SearchBar = () => {
@@ -43,8 +44,8 @@ const SearchBar = () => {
           >
             <option value="">Vers ...</option>
             {queries.map((query) => (
-              <option value={query.isocountry} key={query.id}>
-                {query.isocountry}
+              <option value={query.name} key={query.id}>
+                {query.name}
               </option>
             ))}
           </select>

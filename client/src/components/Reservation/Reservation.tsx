@@ -14,6 +14,11 @@ const Reservation = () => {
     destination: "",
   });
 
+  const today: string = new Date().toISOString().split("T")[0];
+
+  const tomorrowDate: Date = new Date();
+  tomorrowDate.setDate(tomorrowDate.getDate() + 1);
+
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) => {
@@ -52,22 +57,25 @@ const Reservation = () => {
           Date de départ :
           <input
             type="date"
+            min={today}
             name="departureDate"
             value={formData.departureDate}
             onChange={handleInputChange}
             required
           />
         </label>
-
+        {/* 
         <label>
           Date de retour :
           <input
             type="date"
-            name="returnDate"
-            value={formData.returnDate}
+            min={tomorrow}
+            name="departureDate"
+            value={formData.departureDate}
             onChange={handleInputChange}
+            required
           />
-        </label>
+        </label> */}
 
         <label>
           Départ :
