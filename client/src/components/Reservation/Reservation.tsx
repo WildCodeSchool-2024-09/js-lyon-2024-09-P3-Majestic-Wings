@@ -91,7 +91,7 @@ const Reservation = () => {
 
       // Redirection vers la page de connexion si la création réussit
       if (response.status === 201) {
-        toast.success("Votre réservation a bien été enregistré");
+        toast.success("Votre réservation a bien été enregistrée !");
         // navigate("/");
       } else {
         // Log des détails de la réponse en cas d'échec
@@ -112,6 +112,7 @@ const Reservation = () => {
           Départ :
           <input
             type="text"
+            min={today}
             name="departureAirport"
             value={formData.departureAirport}
             onChange={handleInputChange}

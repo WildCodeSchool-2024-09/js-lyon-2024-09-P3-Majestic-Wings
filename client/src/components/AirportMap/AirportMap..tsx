@@ -19,7 +19,7 @@ interface AirportProps {
 
 const AirportMap = ({ AirportData }: AirportProps) => {
   // Personnalisation de l'icône pour les aéroports
-  console.info(AirportData);
+
   return (
     <Marker position={[AirportData.latitude, AirportData.longitude]}>
       <Popup>

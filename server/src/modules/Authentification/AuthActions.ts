@@ -27,6 +27,8 @@ const login: RequestHandler = async (req, res, next) => {
       const { hashed_password, ...userWithoutHashedPassword } = user;
 
       const myPayload: MyPayload = {
+        mail: user.mail,
+        id: user.id,
         sub: user.id.toString(),
       };
       const token = await jwt.sign(

@@ -40,6 +40,7 @@ class PlanesRepository {
 
     const [rows] = await databaseClient.query<Rows>(
       "SELECT distinct plane.id, plane.brand, plane.model, plane.capacity, plane.autonomy, plane.speed, plane.luggages, plane.image, cabine.photo, cabine.code, cabine.libelle,cabine.plan, airports.isocountry, GROUP_CONCAT(DISTINCT prestation.libelle ORDER BY prestation.libelle SEPARATOR ', ') AS cabine_prestations,GROUP_CONCAT(DISTINCT airports.name ORDER BY airports.name SEPARATOR ', ') AS airports_names FROM plane JOIN cabine ON plane.cabine = cabine.code LEFT JOIN prestation ON prestation.prestation = cabine.code JOIN airports ON airports.id = plane.airport_id WHERE plane.id = ? GROUP BY plane.id, cabine.code ORDER BY plane.brand, plane.model",
+      //La requête SQL permet de sélectionner les différentes champs nécessaires à la mise en place de la page avion par ID, le GROUP CONCAT sert à grouper le libelle de la table prestation et SEPARATOR, de rajouter une virgule entre chaque mots.
       [id],
     );
     // Return the first row of the result, which represents the item
