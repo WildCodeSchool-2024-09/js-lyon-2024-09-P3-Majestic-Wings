@@ -10,6 +10,7 @@ declare global {
       //
       // user?: { ... }
       auth: MyPayload;
+      customData: { depart: number; arrival: number };
       /* ************************************************************************* */
     }
   }
