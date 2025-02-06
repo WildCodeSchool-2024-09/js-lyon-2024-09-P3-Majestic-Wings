@@ -1,47 +1,55 @@
-import type React from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Reservation.css";
+import type { ReactNode } from "react";
 
-const Reservation = () => {
-  const [formData, setFormData] = useState({
-    fullName: "",
-    mail: "",
-    phone: "",
-    jetType: "",
-    departureDate: "",
-    returnDate: "",
-    departureLocation: "",
-    destination: "",
-  });
+type ReservationData = {
+  id: number;
+  name: string;
+  isocountry: string;
+};
+interface RegistrationFormData {
+  defaultValue: ReservationData;
+  children: ReactNode;
+  onSubmit: (user: ReservationData) => void;
+}
 
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
-  ) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
+const Reservation = ({
+  defaultValue,
+  children,
+  onSubmit,
+}: RegistrationFormData) => {
+  const [queries, setQuery] = useState<ReservationData[]>([]);
+  const [arrivalID, setarrivalID] = useState("");
+  const [departureID, setDepartureID] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    // TODO: Add logic to send data to the backend or API
-  };
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_API_URL}/api/airports`)
+      .then((res) => res.json())
+      .then((airports) => setQuery(airports));
+  }, []);
 
   return (
     <div className="reservationwrap">
       <h1>Réservation de jet</h1>
-      <form onSubmit={handleSubmit} className="reservationForm">
+      <form
+        onSubmit={(event) => {
+          event.preventDefault();
+          const formData = new FormData(event.currentTarget);
+          const id = formData.get("id") as unknown as number;
+          const name = formData.get("name") as string;
+          const isocountry = formData.get("isocountry") as string;
+          onSubmit({
+            id,
+            name,
+            isocountry,
+          });
+        }}
+        className="form-all"
+        action=""
+      >
         <label>
           Jet :
-          <select
-            name="jetType"
-            value={formData.jetType}
-            onChange={handleInputChange}
-            required
-          >
+          <select name="jetType" value="" required>
             <option value="">Selectionner un jet</option>
             <option value="lightJet">Prestations</option>
             <option value="midsizeJet">Nombres de passagers</option>
@@ -53,45 +61,37 @@ const Reservation = () => {
           <input
             type="date"
             name="departureDate"
-            value={formData.departureDate}
-            onChange={handleInputChange}
+            value={defaultValue.isocountry}
             required
           />
         </label>
 
-        <label>
-          Date de retour :
-          <input
-            type="date"
-            name="returnDate"
-            value={formData.returnDate}
-            onChange={handleInputChange}
-          />
-        </label>
+        <select
+          className="SearchBar"
+          onChange={(e) => setDepartureID(e.target.value)}
+          value={departureID || ""}
+        >
+          <option value="">De ...</option>
+          {queries.map((query) => (
+            <option value={query.isocountry} key={query.id}>
+              {defaultValue.isocountry}
+            </option>
+          ))}
+        </select>
+        <select
+          className="SearchBar"
+          onChange={(e) => setarrivalID(e.target.value)}
+          value={arrivalID || ""}
+        >
+          <option value="">Vers ...</option>
+          {queries.map((query) => (
+            <option value={query.isocountry} key={query.id}>
+              {defaultValue.isocountry}
+            </option>
+          ))}
+        </select>
 
-        <label>
-          Départ :
-          <input
-            type="text"
-            name="departureLocation"
-            value={formData.departureLocation}
-            onChange={handleInputChange}
-            required
-          />
-        </label>
-
-        <label>
-          Arrivée :
-          <input
-            type="text"
-            name="destination"
-            value={formData.destination}
-            onChange={handleInputChange}
-            required
-          />
-        </label>
-
-        <button type="submit">Soumettre la réservation</button>
+        <button type="submit">{children}</button>
       </form>
     </div>
   );

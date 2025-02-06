@@ -9,9 +9,7 @@ const newProfile = {
   firstname: "",
   lastname: "",
   age: 0,
-  mail: "",
   phone_number: "",
-  password: "",
 };
 
 function ProfilePage() {
