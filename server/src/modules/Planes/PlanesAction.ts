@@ -44,16 +44,5 @@ const read: RequestHandler = async (req, res, next) => {
     next(err);
   }
 };
-// const select: RequestHandler = async (req, res, next) => {
-//   try {
-//     // Fetch all items
-//     const planes = await PlanesRepository.display();
-//     // Respond with the items in JSON format
-//     res.json(planes);
-//   } catch (err) {
-//     // Pass any errors to the error-handling middleware
-//     next(err);
-//   }
-// };
 
 export default { read, browse, select };
