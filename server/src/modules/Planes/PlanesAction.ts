@@ -4,8 +4,20 @@ import PlanesRepository from "./PlanesRepository";
 // The B of BREAD - Browse (Read All) operation
 const browse: RequestHandler = async (req, res, next) => {
   try {
-    // Fetch all items
     const planes = await PlanesRepository.readAll();
+    // Respond with the items in JSON format
+    res.status(200).json(planes);
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
+const select: RequestHandler = async (req, res, next) => {
+  try {
+    const { size } = req.query;
+
+    const planes = await PlanesRepository.getModel(size as string);
     // Respond with the items in JSON format
     res.status(200).json(planes);
   } catch (err) {
@@ -33,4 +45,4 @@ const read: RequestHandler = async (req, res, next) => {
   }
 };
 
-export default { read, browse };
+export default { read, browse, select };

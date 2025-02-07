@@ -9,9 +9,7 @@ const newProfile = {
   firstname: "",
   lastname: "",
   age: 0,
-  mail: "",
   phone_number: "",
-  password: "",
 };
 
 function ProfilePage() {
@@ -37,7 +35,7 @@ function ProfilePage() {
             body: JSON.stringify(ProfileData),
           }).then((response) => {
             if (response.status === 204) {
-              toast.info(
+              toast.success(
                 `Compte modifié ${ProfileData.firstname} ${ProfileData.lastname}`,
               );
               navigate("/");
