@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import FlightButton from "../../../public/takeoff.png";
+import AuthContext from "../../Context/AuthContext";
 import "./SearchBar.css";
+import { toast } from "react-toastify";
 
 interface AirportProps {
   id: number;
@@ -42,6 +45,7 @@ const Dropdown = ({
 );
 
 const SearchBar = () => {
+  const { auth } = useContext(AuthContext);
   const [airports, setAirports] = useState<AirportProps[]>([]);
   const [flightDetails, setFlightDetails] = useState<FlightDetails>({
     departureCountry: "",
@@ -66,7 +70,9 @@ const SearchBar = () => {
       .then((res) => res.json())
       .then((data) => setAirports(data));
   }, []);
-
+  const handleToast = () => {
+    toast.info("Merci de vous connecter pour effectuer votre réservation");
+  };
   const getAirportsByCountry = (country: string) =>
     airports
       .filter((airport) => airport.isocountry === country)
@@ -74,7 +80,9 @@ const SearchBar = () => {
 
   const handleSubmit = () => {
     if (!flightDetails.departureAirport || !flightDetails.arrivalAirport) {
-      alert("Veuillez sélectionner un aéroport de départ et d'arrivée.");
+      toast.info(
+        "Veuillez sélectionner un aéroport de départ et d'arrivée pour commencer votre voyage",
+      );
       return;
     }
 
@@ -88,72 +96,89 @@ const SearchBar = () => {
 
   return (
     <>
-      <h2 className="SearchTitle">Rechercher un vol</h2>
+      <section className="SearchSection">
+        <h2 className="SearchTitle">Rechercher un vol</h2>
 
-      <div className="SearchFull">
-        <Dropdown
-          label="Pays de départ ..."
-          options={[
-            "Allemagne",
-            "Autriche",
-            "Belgique",
-            "Espagne",
-            "Finland",
-            "France",
-            "Italie",
-            "Pays-Bas",
-            "Portugal",
-            "Royaume-Uni",
-            "Russie",
-            "Suisse",
-          ]}
-          value={flightDetails.departureCountry}
-          onChange={handleInputChange("departureCountry")}
-        />
-        <Dropdown
-          label="Aéroport de départ ..."
-          options={getAirportsByCountry(flightDetails.departureCountry)}
-          value={flightDetails.departureAirport}
-          onChange={handleInputChange("departureAirport")}
-        />
-        <Dropdown
-          label="Pays d'arrivée ..."
-          options={[
-            "Allemagne",
-            "Autriche",
-            "Belgique",
-            "Espagne",
-            "Finland",
-            "France",
-            "Italie",
-            "Pays-Bas",
-            "Portugal",
-            "Royaume-Uni",
-            "Russie",
-            "Suisse",
-          ]}
-          value={flightDetails.arrivalCountry}
-          onChange={handleInputChange("arrivalCountry")}
-        />
-        <Dropdown
-          label="Aéroport d'arrivée ..."
-          options={getAirportsByCountry(flightDetails.arrivalCountry)}
-          value={flightDetails.arrivalAirport}
-          onChange={handleInputChange("arrivalAirport")}
-        />
-
-        <button
-          type="button"
-          className="ValidationButton"
-          onClick={handleSubmit}
-        >
-          <img
-            src={FlightButton}
-            alt="validation button"
-            className="ValidationImage"
+        <div className="SearchFull">
+          <Dropdown
+            label="Pays de départ ..."
+            options={[
+              "Allemagne",
+              "Autriche",
+              "Belgique",
+              "Espagne",
+              "Finland",
+              "France",
+              "Italie",
+              "Pays-Bas",
+              "Portugal",
+              "Royaume-Uni",
+              "Russie",
+              "Suisse",
+            ]}
+            value={flightDetails.departureCountry}
+            onChange={handleInputChange("departureCountry")}
           />
-        </button>
-      </div>
+          <Dropdown
+            label="Aéroport de départ ..."
+            options={getAirportsByCountry(flightDetails.departureCountry)}
+            value={flightDetails.departureAirport}
+            onChange={handleInputChange("departureAirport")}
+          />
+          <Dropdown
+            label="Pays d'arrivée ..."
+            options={[
+              "Allemagne",
+              "Autriche",
+              "Belgique",
+              "Espagne",
+              "Finland",
+              "France",
+              "Italie",
+              "Pays-Bas",
+              "Portugal",
+              "Royaume-Uni",
+              "Russie",
+              "Suisse",
+            ]}
+            value={flightDetails.arrivalCountry}
+            onChange={handleInputChange("arrivalCountry")}
+          />
+          <Dropdown
+            label="Aéroport d'arrivée ..."
+            options={getAirportsByCountry(flightDetails.arrivalCountry)}
+            value={flightDetails.arrivalAirport}
+            onChange={handleInputChange("arrivalAirport")}
+          />
+          {auth != null ? (
+            <button
+              type="button"
+              className="ValidationButton"
+              onClick={handleSubmit}
+            >
+              <img
+                src={FlightButton}
+                alt="validation button"
+                className="ValidationImage"
+              />
+            </button>
+          ) : (
+            <Link to="/login">
+              <button
+                type="button"
+                className="ValidationButton"
+                onClick={handleToast}
+              >
+                <img
+                  src={FlightButton}
+                  alt="validation button"
+                  className="ValidationImage"
+                />
+              </button>
+            </Link>
+          )}
+        </div>
+      </section>
     </>
   );
 };

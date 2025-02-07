@@ -37,8 +37,9 @@ const NavBar = () => {
 
   const navigation = [
     { id: 1, url: "/", name: "Accueil" },
-    { id: 2, url: "/planes", name: "Avions" },
-    { id: 3, url: "/about", name: "A propos" },
+    { id: 2, url: "/planes", name: "Nos avions" },
+    { id: 3, url: "/cabines", name: "Nos prestations" },
+    { id: 4, url: "/about", name: "A propos" },
   ];
 
   return (
@@ -69,18 +70,25 @@ const NavBar = () => {
               </li>
             ))}
             {auth !== undefined ? (
-              <li className="list_element_burger">
-                <Link
-                  className="mobile_link"
-                  to="/"
-                  onClick={() => {
-                    setAuth(undefined);
-                    toast.info("Vous êtes déconnecté");
-                  }}
-                >
-                  Se déconnecter
-                </Link>
-              </li>
+              <>
+                <li className="list_element_burger">
+                  <Link className="mobile_link" to="/profile/edit-account">
+                    Mon profil
+                  </Link>
+                </li>
+                <li className="list_element_burger">
+                  <Link
+                    className="mobile_link"
+                    to="/"
+                    onClick={() => {
+                      setAuth(undefined);
+                      toast.info("Vous êtes déconnecté");
+                    }}
+                  >
+                    Se déconnecter
+                  </Link>
+                </li>
+              </>
             ) : (
               <li className="list_element_burger">
                 <Link to="/login" className="mobile_link">
