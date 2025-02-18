@@ -13,7 +13,6 @@ type Planes = {
   speed: number;
   luggages: number;
   airport_id: number;
-  airportId: string;
 };
 
 class PlanesRepository {
