@@ -2,8 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import AuthContext from "../../Context/AuthContext";
 import "./Reservation.css";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import CreatePdf from "../../pages/FlightDetailsPDFPage";
 
 type ReservationData = {
   size: string;
@@ -20,6 +20,7 @@ interface PlaneProps {
 }
 
 const Reservation = () => {
+  const navigate = useNavigate();
   const { auth } = useContext(AuthContext);
   const [planes, setPlanes] = useState<PlaneProps[]>([]);
   const [formData, setFormData] = useState<ReservationData>({
@@ -55,7 +56,7 @@ const Reservation = () => {
       fetch(
         `${import.meta.env.VITE_API_URL}/api/get-planes-resa?size=${
           formData.size
-        }`,
+        }`
       )
         .then((res) => res.json())
         .then((data) => setPlanes(data));
@@ -65,7 +66,7 @@ const Reservation = () => {
   const today: string = new Date().toISOString().split("T")[0];
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
     setFormData({
@@ -87,17 +88,18 @@ const Reservation = () => {
             Authorization: `Bearer ${auth?.token}`, // Inclusion du jeton JWT
           },
           body: JSON.stringify(formData),
-        },
+        }
       );
 
       // Redirection vers la page de connexion si la création réussit
       if (response.status === 201) {
         toast.success("Votre réservation a bien été enregistrée !");
-        // navigate("/");
+        navigate("/");
       } else {
         // Log des détails de la réponse en cas d'échec
-        toast.error("Une erreur");
-        console.info(response);
+        toast.error(
+          "Il semblerait qu'il y ait un problème ! Merci de recommencer."
+        );
       }
     } catch (err) {
       // Log des erreurs possibles
@@ -105,96 +107,87 @@ const Reservation = () => {
     }
   };
 
-  const GeneratePDF = () => {
-    CreatePdf();
-  };
-
   return (
-    <div className="reservationwrap">
-      <h1>Réservation de jet</h1>
-      <form onSubmit={handleSubmit} className="reservationForm">
-        <label>
-          Départ :
-          <input
-            type="text"
-            min={today}
-            name="departureAirport"
-            value={formData.departureAirport}
-            onChange={handleInputChange}
-            required
-          />
-        </label>
+    <section className="reservationsection">
+      <div className="reservationwrap">
+        <h1>Réservation de jet</h1>
+        <form onSubmit={handleSubmit} className="reservationForm">
+          <label>
+            Départ :
+            <input
+              type="text"
+              min={today}
+              name="departureAirport"
+              value={formData.departureAirport}
+              onChange={handleInputChange}
+              required
+            />
+          </label>
 
-        <label>
-          Arrivée :
-          <input
-            type="text"
-            name="arrivalAirport"
-            value={formData.arrivalAirport}
-            onChange={handleInputChange}
-            required
-          />
-        </label>
-        <label>
-          Date de départ :
-          <input
-            type="date"
-            min={today}
-            name="reservation_date"
-            value={formData.reservation_date}
-            onChange={handleInputChange}
-            required
-          />
-        </label>
+          <label>
+            Arrivée :
+            <input
+              type="text"
+              name="arrivalAirport"
+              value={formData.arrivalAirport}
+              onChange={handleInputChange}
+              required
+            />
+          </label>
+          <label>
+            Date de départ :
+            <input
+              type="date"
+              min={today}
+              name="reservation_date"
+              value={formData.reservation_date}
+              onChange={handleInputChange}
+              required
+            />
+          </label>
 
-        <label>
-          Jet :
-          <select
-            name="size"
-            value={formData.size}
-            onChange={handleInputChange}
-            required
-          >
-            <option value="">Selectionner un jet</option>
-            <option value="Petit">Petit</option>
-            <option value="Moyen">Moyen</option>
-            <option value="Grand">Grand</option>
-          </select>
-        </label>
-        {planes && planes.length > 0 ? (
-          <div>
-            <label>
-              Avions disponibles
-              <select
-                name="planeId"
-                value={formData.planeId}
-                onChange={handleInputChange}
-                required
-              >
-                {planes.map((selection) => (
-                  <option value={selection.id} key={selection.id}>
-                    {selection.model} {selection.brand}
-                  </option>
-                ))}
-              </select>
-            </label>
-          </div>
-        ) : (
-          <p>Aucun avions disponible</p>
-        )}
+          <label>
+            Jet :
+            <select
+              name="size"
+              value={formData.size}
+              onChange={handleInputChange}
+              required
+            >
+              <option value="">Selectionner un jet</option>
+              <option value="Petit">Petit</option>
+              <option value="Moyen">Moyen</option>
+              <option value="Grand">Grand</option>
+            </select>
+          </label>
+          {planes && planes.length > 0 ? (
+            <div>
+              <label>
+                Avions disponibles
+                <select
+                  name="planeId"
+                  value={formData.planeId}
+                  onChange={handleInputChange}
+                  required
+                >
+                  {planes.map((selection) => (
+                    <option value={selection.id} key={selection.id}>
+                      {selection.model} {selection.brand}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            </div>
+          ) : (
+            <p>Aucun avions disponible</p>
+          )}
 
-        <button
-          onClick={() => {
-            GeneratePDF;
-            handleSubmit;
-          }}
-          type="submit"
-          className="explore-button"
-        >
-          Generer la Resservation sous Forme PDF
-        </button>
-      </form>
-    </div>
+          <button type="submit" onClick={handleSubmit}>
+            Soumettre la réservation
+          </button>
+        </form>
+      </div>
+    </section>
   );
 };
 

@@ -1,4 +1,5 @@
 import "./Registration.css";
+import { toast } from "react-toastify";
 
 import type { ReactNode } from "react";
 type RegistrationData = {
@@ -32,6 +33,18 @@ function Registration({
         const mail = formData.get("mail") as string;
         const phone_number = formData.get("phone_number") as string;
         const password = formData.get("password") as string;
+        if (password.length < 6) {
+          toast.error("votre password doit contenir plus de 6 caractère");
+          return;
+        }
+        if (firstname.length < 4) {
+          toast.error("votre Prenom doit contenir plus de 4 caractère");
+          return;
+        }
+        if (lastname.length < 4) {
+          toast.error("votre Nom doit contenir plus de 4 caractère");
+          return;
+        }
         onSubmit({
           id,
           firstname,

@@ -43,10 +43,10 @@ const PageLogin = () => {
         const user = await response.json();
 
         setAuth(user);
-
         toast.info("Bienvenue");
         navigate("/");
       } else {
+        toast.error("Nous n'avons aucun compte à ce nom. Inscrivez-vous");
         // Log des détails de la réponse en cas d'échec
         console.info(response);
       }

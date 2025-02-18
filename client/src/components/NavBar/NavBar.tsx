@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import "./NavBar.css";
 import { Link } from "react-router-dom";
 
 import { useContext } from "react";
 import { toast } from "react-toastify";
+import CloseMenu from "../../../public/Croix.png";
 import OpenMenu from "../../../public/barre-blanc.png";
-import CloseMenu from "../../../public/close.png";
 import AuthContext from "../../Context/AuthContext";
 
 const NavBar = () => {
@@ -26,19 +26,37 @@ const NavBar = () => {
   }, [scrollPos]);
 
   const [isOpenMenu, setIsOpenMenu] = useState(false);
+  const menuRef = useRef<HTMLDivElement | null>(null);
 
   const handleOpeningMenu = () => {
     setIsOpenMenu(!isOpenMenu);
   };
 
-  const handeCloseMenu = () => {
+  const handeCloseMenu = useCallback(() => {
     setIsOpenMenu(false);
-  };
+  }, []);
+  // Fonction permettant la fermeture du menu-burger lorsque l'on clic à lextérieur, utilise également le useRef plus haut
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        handeCloseMenu();
+      }
+    };
+
+    if (isOpenMenu) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpenMenu, handeCloseMenu]);
 
   const navigation = [
     { id: 1, url: "/", name: "Accueil" },
-    { id: 2, url: "/planes", name: "Avions" },
-    { id: 3, url: "/about", name: "A propos" },
+    { id: 2, url: "/planes", name: "Nos avions" },
+    { id: 3, url: "/cabines", name: "Nos prestations" },
+    { id: 4, url: "/about", name: "A propos" },
   ];
 
   return (
@@ -52,6 +70,7 @@ const NavBar = () => {
           />
         </button>
         <div
+          ref={menuRef}
           className={`opened_menu_container ${
             isOpenMenu === true ? "right_to_left display_flex" : "display_none"
           }`}
@@ -69,18 +88,25 @@ const NavBar = () => {
               </li>
             ))}
             {auth !== undefined ? (
-              <li className="list_element_burger">
-                <Link
-                  className="mobile_link"
-                  to="/"
-                  onClick={() => {
-                    setAuth(undefined);
-                    toast.info("Vous êtes déconnecté");
-                  }}
-                >
-                  Se déconnecter
-                </Link>
-              </li>
+              <>
+                <li className="list_element_burger">
+                  <Link className="mobile_link" to="/profile/edit-account">
+                    Mon profil
+                  </Link>
+                </li>
+                <li className="list_element_burger">
+                  <Link
+                    className="mobile_link"
+                    to="/"
+                    onClick={() => {
+                      setAuth(undefined);
+                      toast.info("Vous êtes déconnecté");
+                    }}
+                  >
+                    Se déconnecter
+                  </Link>
+                </li>
+              </>
             ) : (
               <li className="list_element_burger">
                 <Link to="/login" className="mobile_link">

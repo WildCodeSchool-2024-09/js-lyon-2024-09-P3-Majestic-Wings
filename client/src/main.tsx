@@ -48,10 +48,6 @@ const router = createBrowserRouter([
         element: <PlaneDetailPage />,
       },
       {
-        path: "/reservation",
-        element: <Reservation />,
-      },
-      {
         path: "/cabines",
         element: <CabinesPage />,
       },
@@ -79,6 +75,10 @@ const router = createBrowserRouter([
       {
         path: "/profile/edit-account",
         element: <ProfilePage />,
+      },
+      {
+        path: "/reservation",
+        element: <Reservation />,
       },
     ],
   },
