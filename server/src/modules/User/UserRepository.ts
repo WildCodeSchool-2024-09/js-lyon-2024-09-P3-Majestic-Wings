@@ -8,7 +8,7 @@ type User = {
   lastname: string;
   age: number;
   mail: string;
-  phone_number: number;
+  phone_number: string;
   hashed_password: string;
 };
 
