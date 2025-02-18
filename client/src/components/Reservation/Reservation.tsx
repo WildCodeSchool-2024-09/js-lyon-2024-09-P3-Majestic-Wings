@@ -56,7 +56,7 @@ const Reservation = () => {
       fetch(
         `${import.meta.env.VITE_API_URL}/api/get-planes-resa?size=${
           formData.size
-        }`
+        }`,
       )
         .then((res) => res.json())
         .then((data) => setPlanes(data));
@@ -66,7 +66,7 @@ const Reservation = () => {
   const today: string = new Date().toISOString().split("T")[0];
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) => {
     const { name, value } = e.target;
     setFormData({
@@ -88,7 +88,7 @@ const Reservation = () => {
             Authorization: `Bearer ${auth?.token}`, // Inclusion du jeton JWT
           },
           body: JSON.stringify(formData),
-        }
+        },
       );
 
       // Redirection vers la page de connexion si la création réussit
@@ -98,7 +98,7 @@ const Reservation = () => {
       } else {
         // Log des détails de la réponse en cas d'échec
         toast.error(
-          "Il semblerait qu'il y ait un problème ! Merci de recommencer."
+          "Il semblerait qu'il y ait un problème ! Merci de recommencer.",
         );
       }
     } catch (err) {
