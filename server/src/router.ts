@@ -35,6 +35,7 @@ router.get("/api/prestations", PrestationsAction.browse);
 import UserActions from "./modules/User/UserActions";
 router.post("/api/login", AuthActions.login);
 router.put("/api/profile", AuthActions.verifyToken, UserActions.edit);
+router.get("/api/user/check-email", UserActions.checkEmail);
 router.post("/api/user", AuthActions.hashPassword, UserActions.add);
 
 import ReservationAction from "./modules/Reservation/ReservationAction";

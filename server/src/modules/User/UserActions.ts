@@ -16,7 +16,19 @@ const browse: RequestHandler = async (req, res, next) => {
 
 const add: RequestHandler = async (req, res, next) => {
   try {
-    // Extract the item data from the request body
+    // Vérifier d'abord si l'email existe déjà
+    const existingUser = await UserRepository.findOne({
+      where: {
+        mail: req.body.mail,
+      },
+    });
+
+    if (existingUser) {
+      res.status(400).json({
+        message: "Cette adresse email est déjà utilisée",
+      });
+      return;
+    }
 
     const newUser = {
       firstname: req.body.firstname,
@@ -34,6 +46,7 @@ const add: RequestHandler = async (req, res, next) => {
         res.sendStatus(400);
       }
     }
+
     const insertId = await UserRepository.create(newUser);
     res.status(201).json({ insertId });
   } catch (err) {
@@ -88,4 +101,44 @@ const edit: RequestHandler = async (req, res, next) => {
   }
 };
 
-export default { browse, add, edit, read };
+const checkEmail: RequestHandler = async (req, res, next) => {
+  try {
+    const { email } = req.query;
+
+    if (!email) {
+      res.status(400).json({
+        message: "L'adresse email est requise",
+      });
+      return;
+    }
+
+    // Rechercher l'utilisateur avec cet email
+    const existingUser = await UserRepository.findOne({
+      where: {
+        mail: email as string,
+      },
+    });
+
+    if (existingUser) {
+      res.status(200).json({
+        exists: true,
+        message: "Cette adresse email existe déjà",
+      });
+      return;
+    }
+
+    res.status(404).json({
+      exists: false,
+      message: "Cette adresse email est disponible",
+    });
+    return;
+  } catch (error) {
+    console.error("Erreur lors de la vérification de l'email:", error);
+    res.status(500).json({
+      message: "Erreur serveur lors de la vérification de l'email",
+    });
+    return;
+  }
+};
+
+export default { browse, add, edit, read, checkEmail };
