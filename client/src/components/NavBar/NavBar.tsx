@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 import { useContext } from "react";
 import { toast } from "react-toastify";
+import CloseMenu from "../../../public/Croix.png";
 import OpenMenu from "../../../public/barre-blanc.png";
-import CloseMenu from "../../../public/close (1).png";
 import AuthContext from "../../Context/AuthContext";
 
 const NavBar = () => {
