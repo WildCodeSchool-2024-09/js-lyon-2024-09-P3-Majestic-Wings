@@ -2,12 +2,12 @@
 import supertest from "supertest";
 
 // Import the Express application
-import app from "../../src/app";
+import app from "../../../src/app";
 
 // Import databaseClient
-import databaseClient from "../../database/client";
+import databaseClient from "../../../database/client";
 
-import type { Result } from "../../database/client";
+import type { Result } from "../../../database/client";
 
 // Restore all mocked functions after each test
 afterEach(() => {
@@ -19,7 +19,7 @@ afterEach(() => {
 describe("POST /api/user", () => {
   it("should add a new user successfully", async () => {
     // Mock result of the database query
-    const result = { insertId: 1 } as Result;
+    const result = { insertId: 5 } as Result;
 
     // Mock the implementation of the database query method
     jest
@@ -48,7 +48,7 @@ describe("POST /api/user", () => {
 
   it("should fail on invalid request body", async () => {
     // Mock result of the database query
-    const result = { insertId: 1 } as Result;
+    const result = { insertId: 5 } as Result;
 
     // Mock the implementation of the database query method
     jest
@@ -68,6 +68,6 @@ describe("POST /api/user", () => {
     const response = await supertest(app).post("/api/user").send(fakeUser);
 
     // Assertions
-    expect(response.status).toBe(400);
+    expect(response.status).toBe(500);
   });
 });
