@@ -1,4 +1,5 @@
 import "./Profile.css";
+import { toast } from "react-toastify";
 
 import type { ReactNode } from "react";
 
@@ -26,7 +27,14 @@ function Profile({ defaultValue, children, onSubmit }: ProfileFormData) {
         const lastname = formData.get("lastname") as string;
         const age = formData.get("age") as unknown as number;
         const phone_number = formData.get("phone_number") as string;
-
+        if (firstname.length < 4) {
+          toast.error("votre Prenom doit contenir plus de 4 caractère");
+          return;
+        }
+        if (lastname.length < 4) {
+          toast.error("votre Nom doit contenir plus de 4 caractère");
+          return;
+        }
         onSubmit({
           id,
           firstname,
