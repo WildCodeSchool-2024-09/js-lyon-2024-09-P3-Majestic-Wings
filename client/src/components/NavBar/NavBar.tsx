@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import "./NavBar.css";
 import { Link } from "react-router-dom";
 
@@ -26,14 +26,31 @@ const NavBar = () => {
   }, [scrollPos]);
 
   const [isOpenMenu, setIsOpenMenu] = useState(false);
+  const menuRef = useRef<HTMLDivElement | null>(null);
 
   const handleOpeningMenu = () => {
     setIsOpenMenu(!isOpenMenu);
   };
 
-  const handeCloseMenu = () => {
+  const handeCloseMenu = useCallback(() => {
     setIsOpenMenu(false);
-  };
+  }, []);
+  // Fonction permettant la fermeture du menu-burger lorsque l'on clic à lextérieur, utilise également le useRef plus haut
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        handeCloseMenu();
+      }
+    };
+
+    if (isOpenMenu) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpenMenu, handeCloseMenu]);
 
   const navigation = [
     { id: 1, url: "/", name: "Accueil" },
@@ -53,6 +70,7 @@ const NavBar = () => {
           />
         </button>
         <div
+          ref={menuRef}
           className={`opened_menu_container ${
             isOpenMenu === true ? "right_to_left display_flex" : "display_none"
           }`}

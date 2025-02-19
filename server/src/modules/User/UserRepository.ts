@@ -1,5 +1,4 @@
 import databaseClient from "../../../database/client";
-
 import type { Result, Rows } from "../../../database/client";
 
 type User = {
@@ -8,7 +7,7 @@ type User = {
   lastname: string;
   age: number;
   mail: string;
-  phone_number: number;
+  phone_number: string;
   hashed_password: string;
 };
 
@@ -69,5 +68,22 @@ class UserRepository {
     // Return how many rows were affected
     return result.affectedRows;
   }
+
+  async findOne(criteria: { where: { mail: string } }) {
+    try {
+      // Utiliser une requête SQL directe au lieu du modèle Sequelize
+      const [rows] = await databaseClient.query<Rows>(
+        "SELECT * FROM user WHERE mail = ?",
+        [criteria.where.mail],
+      );
+
+      // Retourner le premier utilisateur trouvé ou null
+      return (rows as User[])[0] || null;
+    } catch (error) {
+      console.error("Error in findOne:", error);
+      throw error;
+    }
+  }
 }
+
 export default new UserRepository();

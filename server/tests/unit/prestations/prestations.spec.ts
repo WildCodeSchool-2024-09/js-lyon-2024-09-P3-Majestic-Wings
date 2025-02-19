@@ -2,12 +2,12 @@
 import supertest from "supertest";
 
 // Import the Express application
-import app from "../../src/app";
+import app from "../../../src/app";
 
 // Import databaseClient
-import databaseClient from "../../database/client";
+import databaseClient from "../../../database/client";
 
-import type { Rows } from "../../database/client";
+import type { Rows } from "../../../database/client";
 
 // Restore all mocked functions after each test
 afterEach(() => {
@@ -15,8 +15,8 @@ afterEach(() => {
 });
 
 // Test suite for the GET /api/items route
-describe("GET /api/planes", () => {
-  it("should fetch planes successfully", async () => {
+describe("GET /api/prestations", () => {
+  it("should fetch prestations successfully", async () => {
     // Mock empty rows returned from the database
     const rows = [] as Rows;
 
@@ -26,7 +26,7 @@ describe("GET /api/planes", () => {
       .mockImplementation(async () => [rows, []]);
 
     // Send a GET request to the /api/items endpoint
-    const response = await supertest(app).get("/api/planes");
+    const response = await supertest(app).get("/api/prestations");
 
     // Assertions
     expect(response.status).toBe(200);
