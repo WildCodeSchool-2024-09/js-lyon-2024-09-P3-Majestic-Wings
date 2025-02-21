@@ -1,0 +1,191 @@
+.menu_icon {
+  width: 2.5rem;
+}
+
+.menu_btn {
+  margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 10px;
+  border: none;
+  padding: 2px;
+  transition: 0.2s ease all;
+}
+
+.menu_btn:active {
+  background-color: rgba(225, 225, 225, 0.75);
+}
+
+.display_none {
+  left: 2000px;
+  display: none;
+}
+
+.display_flex {
+  left: 0;
+  display: flex;
+}
+
+.opened_menu_container {
+  background-color: rgb(251, 237, 237, 0.95);
+  width: 200px;
+  height: 100vh;
+  position: fixed;
+  font-size: 15px;
+  top: 49px;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 40px;
+}
+
+.mobile_link {
+  color: var(--white-color);
+  font-size: 25px;
+  text-decoration: none;
+}
+
+.mobile_link:hover {
+  color: var(--secondary-color);
+}
+
+.list_element_burger {
+  margin: 20px 0;
+  list-style: none;
+}
+
+.login_link {
+  background-color: var(--secondary-color);
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.right_to_left {
+  animation: slide_right_to_left 0.4s ease;
+  z-index: 1;
+}
+.ProfileTop {
+  background-image: url("../../../public/utilisateur-noir.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  border-radius: 150px;
+}
+.ProfileScrolled {
+  background-image: url("../../../public/utilisateur-blanc.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+  transition-behavior: normal;
+  transition-duration: 1s;
+  transition-delay: 0s;
+  transition-timing-function: ease-in;
+  border-radius: 150px;
+}
+.loginface {
+  width: 25px;
+  padding-right: 20px;
+}
+
+@keyframes slide_right_to_left {
+  from {
+    left: 1000px;
+  }
+  to {
+    left: 0px;
+  }
+}
+.NavBarTop {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  z-index: 100;
+}
+.NavBarScrolled {
+  background: var(--Footer);
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  z-index: 100;
+  transition: var(--Footer) 1s ease-in-out;
+  transition-property: var(--Footer);
+  transition-behavior: normal;
+  transition-duration: 1s;
+  transition-delay: 0s;
+  transition-timing-function: ease-in;
+  padding-bottom: 5px;
+}
+
+.ButtonList {
+  border: none;
+  color: var(--white-color);
+  font-size: 25px;
+  pointer-events: none;
+  text-decoration: none;
+  color: black;
+}
+
+.ButtonList:hover {
+  color: var(--secondary-color);
+}
+
+@media (min-width: 768px) {
+  .sectionPlane {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sectionPlane {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+}
+
+a {
+  display: flex;
+  align-items: center;
+}
+.loginButton {
+  display: flex;
+  align-items: center;
+}
+.loginButton img {
+  width: 30px;
+  margin-right: 5px;
+}
+.logo {
+  width: 260px;
+}
+.LogoTop {
+  background-image: url("../../../public/logo-noir.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.Logoscrolled {
+  background-image: url("../../../public/logo-gris-clair.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+  transition-behavior: normal;
+  transition-duration: 1s;
+  transition-delay: 0s;
+  transition-timing-function: ease-in;
+}
+
+@media (max-width: 360px) {
+  .loginface {
+    display: none;
+  }
+}

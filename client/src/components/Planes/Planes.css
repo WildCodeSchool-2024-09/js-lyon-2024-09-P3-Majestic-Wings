@@ -1,0 +1,56 @@
+.divPlane {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+}
+.plane {
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+@media (min-width: 375px) {
+  .plane {
+    width: 350px;
+  }
+}
+
+@media (min-width: 425px) {
+  .plane {
+    width: 400px;
+  }
+}
+@media (min-width: 475px) {
+  .plane {
+    width: 450px;
+  }
+}
+@media (min-width: 530px) {
+  .plane {
+    width: 500px;
+  }
+}
+@media (min-width: 600px) {
+  .plane {
+    width: 550px;
+  }
+}
+
+@media (min-width: 768px) {
+  .plane {
+    width: 350px;
+    height: 250px;
+  }
+}
+@media (min-width: 1024px) {
+  .plane {
+    width: 475px;
+    height: 375px;
+  }
+}
+@media (min-width: 1440px) {
+  .plane {
+    width: 600px;
+    height: 500px;
+  }
+}
